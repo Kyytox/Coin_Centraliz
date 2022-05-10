@@ -1,0 +1,73 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="media-div-entete">
+
+    {% if type_media == 'Media' %}
+
+        <div class="media-div-random-media-btn">
+            <a href="{{ random_media.url }}">
+                <li class="media-random-media-random">Découverte Aléatoire</li>
+                <li class="media-random-media-author">{{ random_media.author }}: </li>
+                <li class="media-random-media-title">{{ random_media.title }}</li>
+            </a>
+        </div>
+
+        <div class="media-div-img-css-fonda">
+            <div class="div-box">
+                <div class="box">
+                    {% for media in list_site_media  %}
+                        <span style="--i:{{ forloop.counter }}"><a href="{{ media.url_site }}"><img src="/static/img/media/{{ media.title }}.jpg" alt=""></a></span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="media-div-img-css-trading">
+            <div class="div-box">
+                <div class="box">
+                    {% for media in list_site_media  %}
+                        <span style="--i:{{ forloop.counter }}"><a href="{{ media.url_site }}"><img src="/static/img/media/{{ media.title }}.jpg" alt=""></a></span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+
+<div class="div-type-media">
+    <form action="{% url 'media' %}" method="GET">
+        <input type="hidden" name="q" value="Media">
+        <button class="btn-type-media" type="submit">Fondamentaux</button>
+    </form>
+
+    <form action="{% url 'media' %}" method="GET">
+        <input type="hidden" name="q" value="Trading">
+        <button class="btn-type-media" type="submit">Trading</button>
+    </form>
+</div>
+
+<div class="all-media">
+    {% for site in list_all_media %}
+        <div class="media-media">
+            <div class="media-influ-name">
+                <p>{{ site.0 }}</p>
+            </div>
+            <div class="media-media-list">
+                {% for list_media in site %}
+                    {% if site.0 != list_media %}
+                        {% for media in list_media %}
+                            {% include "news/block_media.html" %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

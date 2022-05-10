@@ -1,0 +1,52 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<div class="div-explaication-main">
+    <div class="explications-explication">
+        <p>Coin Centraliz est un agrégateur de contenu crypto</p>
+        <p>Vous trouverez plusieurs types d'informations: </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Actus Journaux</th>
+                    <th>Medias / vidéos</th>
+                    <th>Tweets</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="explication-table-td-actus-journaux">
+                        {% for article in list_site_article %}
+                            <li><a href={{ article.url_site }}>{{ article.title }}</a></li>
+                        {% endfor %}
+                    </td>
+                    <td class="explication-table-td-media">
+                        {% for media in list_site_media %}
+                            <li><a href={{ media.url_site }}>{{ media.title }}</a></li>
+                        {% endfor %}
+                    </td>
+                    <td class="explication-table-td-tweet">
+                        <p>Un bot Twitter a été créer (mettre adresse BOT), principalement pour récupérer des THREADS et les partager. 
+                            <br><br>Ce dernier va retweeter lorsqu'on le mentionnee et ensuite ce tweet sera ajouté en page d'accueil du site
+                            <br><br>Donc si vous voulez afficher / partager un tweet (THREAD) hésitez pas a mentionner le BOT
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    
+    <div class="explications-div-btn">
+        <a href="{% url 'index' %}"><li class="explication-direction-page-site">Dernières Actus</li></a>
+        <a href="{% url 'sites_actus' %}"><li class="explication-direction-page-site">Site Actus Journaux</li></a>
+        <a href="{% url 'media' %}"><li class="explication-direction-page-site">Media Vidéos</li></a>
+        <a href="{% url 'environnement' %}"><li class="explication-direction-page-site">Environnement & Crypto</li></a>
+    </div>
+</div>
+
+{% endblock %}

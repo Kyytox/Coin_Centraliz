@@ -1,0 +1,18 @@
+{% extends 'news/base.html' %}
+
+
+{% block content %}
+
+
+<div class="body-search">
+    <div class="search-category-box-site">
+        <div class="search-list-category">
+            {% for search in list_articles %}
+                {% include "news/block_search.html" %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% load static %}
+
+<div class="navBar">
+
+    <li class=li-section-navbar>
+        <a href="{% url 'index' %}">Dernières Actus</a>
+    </li>
+    <li class=li-section-navbar>
+        <a href="{% url 'sites_actus' %}">Sites Actus</a>
+    </li>
+    <li class=li-section-navbar>
+        <a href="{% url 'media' %}">Media</a>
+    </li>
+    <li class=li-section-navbar style="background-color:green">
+        <a href="{% url 'environnement' %}">ENVIRONNEMENT</a>
+    </li>
+    <li class="li-section-navbar-explication">
+        <a href="{% url 'explication' %}">Qu'est ce que Coin Centraliz ?</a>
+    </li>
+    <li class='li-section-navbar-sociaux'>
+        <span>
+            <a href="https://bitcoin.fr/">
+                <img src="{% static "img/twitter-sign.png"%}" alt="">
+            </a>
+        </span>
+    </li>
+    <li class='li-section-navbar-sociaux'>
+        <span>
+            <a href="https://bitcoin.fr/">
+                <img src="{% static "img/github.png"%}" alt="">
+            </a>
+        </span>
+    </li>
+</div>
+
+
+
+
+
+
+

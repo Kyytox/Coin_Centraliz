@@ -1,0 +1,39 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<div class="media-div-img-css-article">
+    <div class="div-box">
+        <div class="box">
+            {% for site in list_site_article  %}
+                <span style="--i:{{ forloop.counter }}"><a href="{{ site.url_site }}"><img src="/static/img/article/{{ site.title }}.jpg" alt=""></a></span>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+<div class="sites-actus">
+    {% for site in list_all_articles %}
+        <div class="sites-actus-box-site">
+            <div class="sites-actus-site-name">
+                <p>{{ site.0 }}</p>
+            </div>
+            <div class="sites-actus-articles-list">
+                {% for list_article in site %}
+                    {% if site.0 != list_article %}
+                        {% for article in list_article %}
+                            {% include "news/block_articles_site.html" with title="title" object='test' %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
