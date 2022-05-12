@@ -54,6 +54,25 @@
         {% endfor %}
     </div>
 
+    <div id='derniers-media'> 
+        {% for media in Latest_media %}
+            <div class="main-div-media">
+                <div class="main-div-media-img">
+                    <img class="main-media-img" src="{{ media.thumbnail }}" alt="{{ media.title }}">
+                </div>
+                <div class="main-media-author">
+                    <p>{{ media.author }}</p>
+                </div>
+                <div class="main-media-title">
+                    <p><a href="{{ media.url }}" class="link-media" style="text-decoration:none">{{ media.title }}</a></p>
+                </div>
+                <div class="main-media_interval_publi">
+                    <p>{{ media.interval_publi }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
     <div id="div-description-create">
         <div id="div-description">
             <div id="div-description-title">
@@ -79,24 +98,6 @@
         </div>
     </div>
 
-    <div id='derniers-media'> 
-        {% for media in Latest_media %}
-            <div class="main-div-media">
-                <div class="main-div-media-img">
-                    <img class="main-media-img" src="{{ media.thumbnail }}" alt="{{ media.title }}">
-                </div>
-                <div class="main-media-author">
-                    <p>{{ media.author }}</p>
-                </div>
-                <div class="main-media-title">
-                    <p><a href="{{ media.url }}" class="link-media" style="text-decoration:none">{{ media.title }}</a></p>
-                </div>
-                <div class="main-media_interval_publi">
-                    <p>{{ media.interval_publi }}</p>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
 
     <div id='derniers-tweet'>
         {% for tweet in Latest_tweet %}
@@ -117,6 +118,10 @@
 
 
 <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('HTML prêt !');
+    });
 
     function createOnLoad(author, site, category_1, category_2, category_3, category_4, date_publi, url) {
 

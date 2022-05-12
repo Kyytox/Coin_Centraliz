@@ -2,19 +2,19 @@
 
 <div class="navBar">
 
-    <li class=li-section-navbar>
+    <li class=li-section-navbar {% if request.resolver_match.url_name == 'index' %}id="active"{% endif %}>
         <a href="{% url 'index' %}">Dernières Actus</a>
     </li>
-    <li class=li-section-navbar>
+    <li class=li-section-navbar {% if request.resolver_match.url_name == 'sites_actus' %}id="active"{% endif %}>
         <a href="{% url 'sites_actus' %}">Sites Actus</a>
     </li>
-    <li class=li-section-navbar>
+    <li class=li-section-navbar {% if request.resolver_match.url_name == 'media' %}id="active"{% endif %}>
         <a href="{% url 'media' %}">Media</a>
     </li>
-    <li class=li-section-navbar style="background-color:green">
+    <li class=li-section-navbar style="background-color:green" >
         <a href="{% url 'environnement' %}">ENVIRONNEMENT</a>
     </li>
-    <li class="li-section-navbar-explication">
+    <li class="li-section-navbar-explication" {% if request.resolver_match.url_name == 'explication' %}id="active"{% endif %}>
         <a href="{% url 'explication' %}">Qu'est ce que Coin Centraliz ?</a>
     </li>
     <li class='li-section-navbar-sociaux'>

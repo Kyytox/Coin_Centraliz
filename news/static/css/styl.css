@@ -12,8 +12,23 @@
 
 body {
     background: linear-gradient(90deg, rgb(8, 8, 8), rgb(49, 50, 56));
+    /* background: linear-gradient(-45deg, rgb(33, 35, 43), rgb(76, 80, 99)); */
     height: 100%;
+    --background-color: linear-gradient(-45deg, rgb(33, 35, 43), rgb(76, 80, 99));
+    /* --background-color: linear-gradient(90deg, rgb(8, 8, 8), rgb(49, 50, 56)); */
+    --box-shadow: 0 3px 6px rgb(0 0 0 / 20%), 0 3px 6px rgb(0 0 0 / 30%);
+    font-family: 'Anonymous Pro';
+    margin: 0;
+    width: 100%;
 }
+
+
+
+#active {
+    background-color: rgb(57, 59, 68);
+}
+
+
 
 
 /* en tete */
@@ -31,7 +46,6 @@ body {
 .en-tete-title h1 {
     display: block;
     color: white;
-    font-family: 'Anonymous Pro';
     font-size: 30px;
     margin: 0 0 0 5px;
     padding: 10px 0 0 10px;
@@ -58,7 +72,7 @@ body {
     padding: 12px 30px 12px 30px;
     text-decoration: none;
     color: white;
-    font-family: 'Anonymous Pro';
+
     font-size: 25px;
 }
 
@@ -92,29 +106,31 @@ body {
 #main {
     border-radius: 10px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-self: flex-start;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     margin-left: 2%;
     margin-right: 2%;
-    height: 818px;
 }
 
 
 #derniers-articles,
 #derniers-media,
 #derniers-tweet {
-    background: linear-gradient(-45deg, rgb(33, 35, 43), rgb(76, 80, 99));
-    box-shadow: 0 3px 6px rgb(0 0 0 / 20%), 0 3px 6px rgb(0 0 0 / 30%);
+    background: var(--background-color);
+    box-shadow: var(--box-shadow);
     display: flex;
     justify-content: flex-start;
     flex-wrap: nowrap;
     flex-direction: column;
     overflow-y: scroll;
-    /* max-height: 620px; */
-    width: 49%;
+    width: 49.5%;
     animation: fadein 2s;
+    -webkit-animation: fadein 2s;
+    -moz-animation: fadein 2s;
+    -ms-animation: fadein 2s;
+    -o-animation: fadein 2s;
     border-radius: 10px;
 }
 
@@ -124,15 +140,22 @@ body {
 
 #derniers-media {
     animation: fadein 2s;
+    -webkit-animation: fadein 2s;
+    -moz-animation: fadein 2s;
+    -ms-animation: fadein 2s;
+    -o-animation: fadein 2s;
     height: 400px;
     margin-bottom: 15px;
 }
 
 #derniers-tweet {
-    justify-content: flex-start;
     animation: fadein 2s;
+    -webkit-animation: fadein 2s;
+    -moz-animation: fadein 2s;
+    -ms-animation: fadein 2s;
+    -o-animation: fadein 2s;
     height: 400px;
-    order: 3;
+    margin-top: -172px
 }
 
 
@@ -145,7 +168,6 @@ body {
 ::-webkit-scrollbar-track {
     background: rgb(33, 35, 43);
     border-radius: 10px;
-    /* border-left: 0.2px solid gray; */
 }
 
 /* Handle */
@@ -169,9 +191,10 @@ body {
 .main-div-tweet {
     border-bottom: 0.3px solid gray;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
     flex-wrap: wrap;
     flex-direction: row;
+    align-items: center;
     width: 100%;
 }
 
@@ -184,31 +207,21 @@ body {
 .main-article-site,
 .main-media-author,
 .main-tweet-author {
-    padding-left: 5px;
-    width: 9%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    width: 8%;
 }
 
 .main-article-site p,
 .main-media-author p,
 .main-tweet-author p {
     color: rgba(219, 217, 217, 0.616);
-    font-family: 'Anonymous Pro';
     font-size: 11px;
-    padding-left: 5px;
-    margin: 8px 0 8px 0;
 }
 
 .main-media_interval_publi p,
 .main-article-interval-publi p,
 .main-tweet-interval-publi p {
     color: rgba(219, 217, 217, 0.616);
-    font-family: 'Anonymous Pro';
     font-size: 11px;
-    padding-left: 20px;
-    margin: 8px 0 8px 0;
 }
 
 .main-article-title,
@@ -217,36 +230,34 @@ body {
 .main-article-interval-publi,
 .main-media_interval_publi,
 .main-tweet-interval-publi {
-    display: flex;
+    /* display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: center; */
+    width: 3%;
 }
 
 .main-article-title {
-    width: 63%;
+    width: 70%;
 }
 
 .main-media-title {
-    width: 72%;
+    width: 74%;
 }
 
 .main-tweet-title {
-    width: 82%;
+    width: 85%;
 }
 
 .main-article-title p,
 .main-media-title p,
 .main-tweet-title p {
     text-decoration: none;
-    padding-left: 5px;
-    margin: 8px 0 8px 0;
 }
 
 .main-article-title p a,
 .main-media-title p a,
 .main-tweet-title p a {
     color: rgb(219, 217, 217);
-    font-family: 'Anonymous Pro';
     font-size: 14px;
     text-decoration: none;
 }
@@ -261,12 +272,11 @@ body {
 
 .main-div-article-category {
     display: flex;
-    justify-content: flex-start;
+    justify-content: stretch;
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
-    width: 18%;
-    padding-left: 15px;
+    width: 13.5%;
 }
 
 .main-div-article-category button {
@@ -275,13 +285,24 @@ body {
     font-size: 11px;
     background: transparent;
     border: none;
-    margin: 5px 0 3px 0;
 }
 
 
 .main-media-img {
     width: 80px;
+    margin-left: -9px;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -293,8 +314,8 @@ body {
 
 
 #div-description {
-    background: linear-gradient(-45deg, rgb(33, 35, 43), rgb(76, 80, 99));
-    box-shadow: 0 3px 6px rgb(0 0 0 / 20%), 0 3px 6px rgb(0 0 0 / 30%);
+    background: var(--background-color);
+    box-shadow: var(--box-shadow);
     border-radius: 10px;
     overflow-y: scroll;
     max-height: 300px;
@@ -307,9 +328,12 @@ body {
     flex-wrap: wrap;
     flex-direction: row;
     color: rgba(219, 217, 217, 0.616);
-    font-family: 'Anonymous Pro';
     font-size: 13px;
     animation: fadein 1.5s;
+    -webkit-animation: fadein 1.5s;
+    -moz-animation: fadein 1.5s;
+    -ms-animation: fadein 1.5s;
+    -o-animation: fadein 1.5s;
 }
 
 #div-description-title {
@@ -355,7 +379,6 @@ body {
 
 #div-description-url a {
     color: rgba(219, 217, 217, 0.616);
-    font-family: 'Anonymous Pro';
     font-size: 13px;
     text-decoration: none;
 }
@@ -376,26 +399,27 @@ body {
     flex-direction: row;
     margin-left: 5%;
     margin-right: 5%;
-    z-index: 1;
 }
 
 .sites-actus-site-name {
     background: linear-gradient(-85deg, rgb(14, 15, 19), rgb(46, 48, 59));
     border-radius: 10px 10px 0 0;
     padding: 20px 0 20px 0;
-    z-index: 1;
 }
 
 .sites-actus-box-site {
-    box-shadow: 0 3px 6px rgb(0 0 0 / 20%), 0 3px 6px rgb(0 0 0 / 30%);
+    box-shadow: var(--box-shadow);
     width: 32%;
     margin-bottom: 20px;
     animation: fadein 1.5s;
-    z-index: 1;
+    -webkit-animation: fadein 1.5s;
+    -moz-animation: fadein 1.5s;
+    -ms-animation: fadein 1.5s;
+    -o-animation: fadein 1.5s;
 }
 
 .sites-actus-articles-list {
-    background: linear-gradient(-45deg, rgb(33, 35, 43), rgb(76, 80, 99));
+    background: var(--background-color);
     border-radius: 0 10px 10px 10px;
     overflow-y: scroll;
     max-height: 430px;
@@ -427,7 +451,6 @@ body {
 
 .sites-actus-site-name p {
     color: rgba(219, 217, 217, 0.877);
-    font-family: 'Anonymous Pro';
     font-size: 20px;
     text-align: center;
     margin: 0 0 0 0;
@@ -435,7 +458,6 @@ body {
 
 .sites-actus-article-title p {
     color: rgb(219, 217, 217);
-    font-family: 'Anonymous Pro';
     padding-left: 8px;
     font-size: 14px;
 }
@@ -447,7 +469,6 @@ body {
 
 .sites-actus-article-interval-publi p {
     color: rgba(219, 217, 217, 0.616);
-    font-family: 'Anonymous Pro';
     font-size: 11px;
     padding-left: 10px;
 }
@@ -465,21 +486,19 @@ body {
     visibility: hidden;
     background: rgba(0, 0, 0, .9);
     color: rgb(202, 28, 28);
-    font-family: 'Anonymous Pro';
     font-size: 13px;
     padding: 10px;
     border-radius: 6px;
     top: 100%;
     left: 20%;
     margin-right: -40px;
-
     box-shadow: 0 0 2px rgba(0, 0, 0, .5);
     transform: scale(0) rotate(-18deg);
     transition: all .4s;
 
     /* Position the tooltip text - see examples below! */
     position: absolute;
-    z-index: 1000;
+    z-index: 2;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
@@ -487,7 +506,6 @@ body {
     visibility: visible;
     transform: scale(1) rotate(0);
     opacity: 1;
-    z-index: 1001;
 }
 
 /* Sites-Actus */
@@ -511,8 +529,12 @@ body {
 
 .media-div-random-media-btn {
     animation: fadein 3s;
-    background: linear-gradient(-45deg, rgb(33, 35, 43), rgb(76, 80, 99));
-    box-shadow: 0 3px 6px rgb(0 0 0 / 20%), 0 3px 6px rgb(0 0 0 / 30%);
+    -webkit-animation: fadein 3s;
+    -moz-animation: fadein 3s;
+    -ms-animation: fadein 3s;
+    -o-animation: fadein 3s;
+    background: var(--background-color);
+    box-shadow: var(--box-shadow);
     width: 20%;
     border-radius: 10px;
     margin-left: 9%;
@@ -520,12 +542,12 @@ body {
 
 .media-div-random-media-btn:hover {
     background: linear-gradient(-95deg, rgb(43, 46, 56), rgb(90, 95, 117));
-    box-shadow: 0 3px 6px rgb(0 0 0 / 20%), 0 3px 6px rgb(0 0 0 / 30%);
+    box-shadow: var(--box-shadow);
 }
 
 .media-div-random-media-btn a {
     color: rgb(219, 217, 217);
-    font-family: 'Anonymous Pro';
+
     text-decoration: none;
 }
 
@@ -590,11 +612,15 @@ body {
     margin-bottom: 40px;
     margin-top: 30px;
     animation: fadein 2.5s;
+    -webkit-animation: fadein 2.5s;
+    -moz-animation: fadein 2.5s;
+    -ms-animation: fadein 2.5s;
+    -o-animation: fadein 2.5s;
 }
 
 .btn-type-media {
     color: white;
-    font-family: 'Anonymous Pro';
+
     font-size: 20px;
     background: transparent;
     border: none;
@@ -617,9 +643,13 @@ body {
 }
 
 .media-media {
-    box-shadow: 0 3px 6px rgb(0 0 0 / 20%), 0 3px 6px rgb(0 0 0 / 30%);
+    box-shadow: var(--box-shadow);
     width: 32%;
     animation: fadein 2s;
+    -webkit-animation: fadein 2s;
+    -moz-animation: fadein 2s;
+    -ms-animation: fadein 2s;
+    -o-animation: fadein 2s;
     margin-bottom: 30px;
 }
 
@@ -630,7 +660,7 @@ body {
 }
 
 .media-media-list {
-    background: linear-gradient(-45deg, rgb(33, 35, 43), rgb(76, 80, 99));
+    background: var(--background-color);
     border-radius: 10px;
     overflow-y: scroll;
     max-height: 430px;
@@ -666,7 +696,6 @@ body {
 
 .media-influ-name p {
     color: rgba(219, 217, 217, 0.877);
-    font-family: 'Anonymous Pro';
     font-size: 20px;
     text-align: center;
     margin: 0 0 0 0;
@@ -674,13 +703,11 @@ body {
 
 .media-media-title p {
     color: rgb(219, 217, 217);
-    font-family: 'Anonymous Pro';
     font-size: 14px;
 }
 
 .media-media-interval-publi p {
     color: rgba(219, 217, 217, 0.616);
-    font-family: 'Anonymous Pro';
     font-size: 11px;
 }
 
@@ -708,21 +735,24 @@ body {
 
 .environnement-présentation p {
     color: rgb(219, 217, 217);
-    font-family: 'Anonymous Pro';
     font-size: 20px;
 }
 
 .environnement-box-site {
     background: linear-gradient(-85deg, rgb(14, 15, 19), rgb(46, 48, 59));
-    box-shadow: 0 3px 6px rgb(0 0 0 / 20%), 0 3px 6px rgb(0 0 0 / 30%);
+    box-shadow: var(--box-shadow);
     border-radius: 10px 0 10px 0;
     width: 90%;
     margin-top: 50px;
-    animation: fadein 1.5s;
+    animation: fadein 2s;
+    -webkit-animation: fadein 2s;
+    -moz-animation: fadein 2s;
+    -ms-animation: fadein 2s;
+    -o-animation: fadein 2s;
 }
 
 .environnement-list {
-    background: linear-gradient(-45deg, rgb(33, 35, 43), rgb(76, 80, 99));
+    background: var(--background-color);
     border-radius: 10px;
     overflow-y: scroll;
     max-height: 700px;
@@ -755,7 +785,6 @@ body {
 
 .environnement-influ-name p {
     color: rgba(219, 217, 217, 0.877);
-    font-family: 'Anonymous Pro';
     font-size: 20px;
     text-align: center;
 }
@@ -766,13 +795,11 @@ body {
 
 .environnement-media-title p {
     color: rgb(219, 217, 217);
-    font-family: 'Anonymous Pro';
     font-size: 14px;
 }
 
 .environnement-media-interval-publi p {
     color: rgba(219, 217, 217, 0.616);
-    font-family: 'Anonymous Pro';
     font-size: 11px;
 }
 
@@ -795,14 +822,17 @@ body {
 
 .search-box-no-result p {
     color: rgb(219, 217, 217);
-    font-family: 'Anonymous Pro';
     font-size: 20px;
 }
 
 .search-box-site {
     width: 48%;
     max-height: 500px;
-    animation: fadein 1.5s;
+    animation: fadein 2s;
+    -webkit-animation: fadein 2s;
+    -moz-animation: fadein 2s;
+    -ms-animation: fadein 2s;
+    -o-animation: fadein 2s;
     margin-bottom: 10px;
     margin-left: 15px;
 }
@@ -815,14 +845,13 @@ body {
 
 .search-influ-name p {
     color: rgba(219, 217, 217, 0.877);
-    font-family: 'Anonymous Pro';
     font-size: 20px;
     text-align: center;
     margin: 0 0 0 0;
 }
 
 .search-list {
-    background: linear-gradient(-45deg, rgb(33, 35, 43), rgb(76, 80, 99));
+    background: var(--background-color);
     border-radius: 10px;
     overflow-y: scroll;
     max-height: 500px;
@@ -864,14 +893,13 @@ body {
 
 .search-title p {
     color: rgb(219, 217, 217);
-    font-family: 'Anonymous Pro';
+
     font-size: 14px;
 }
 
 .search-interval-publi p,
 .search-author p {
     color: rgba(219, 217, 217, 0.616);
-    font-family: 'Anonymous Pro';
     font-size: 11px;
 }
 
@@ -889,22 +917,19 @@ body {
     visibility: hidden;
     background: rgba(0, 0, 0, .9);
     color: rgb(202, 28, 28);
-    font-family: 'Anonymous Pro';
     font-size: 13px;
     padding: 10px;
     border-radius: 6px;
     top: 100%;
     left: 20%;
-    /* margin-left: -40px; */
     margin-right: -40px;
-
     box-shadow: 0 0 2px rgba(0, 0, 0, .5);
     transform: scale(0) rotate(-18deg);
     transition: all .4s;
 
     /* Position the tooltip text - see examples below! */
     position: absolute;
-    z-index: 555555;
+    z-index: 2;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
@@ -928,12 +953,16 @@ body {
     margin-right: 10%;
     width: 80%;
     height: 90%;
-    animation: fadein 1.5s;
+    animation: fadein 2s;
+    -webkit-animation: fadein 2s;
+    -moz-animation: fadein 2s;
+    -ms-animation: fadein 2s;
+    -o-animation: fadein 2s;
 }
 
 .search-list-category {
-    background: linear-gradient(-45deg, rgb(33, 35, 43), rgb(76, 80, 99));
-    box-shadow: 0 3px 6px rgb(0 0 0 / 20%), 0 3px 6px rgb(0 0 0 / 30%);
+    background: var(--background-color);
+    box-shadow: var(--box-shadow);
     border-radius: 10px;
     overflow-y: scroll;
     max-height: 800px;
@@ -1009,7 +1038,6 @@ input:focus::-moz-placeholder {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    align-items: center;
     flex-direction: row;
     margin: 0 2% 0 2%;
 }
@@ -1017,8 +1045,12 @@ input:focus::-moz-placeholder {
 
 .explications-explication {
     animation: fadein 2s;
-    background: linear-gradient(-45deg, rgb(33, 35, 43), rgb(76, 80, 99));
-    box-shadow: 0 3px 6px rgb(0 0 0 / 20%), 0 3px 6px rgb(0 0 0 / 30%);
+    -webkit-animation: fadein 2s;
+    -moz-animation: fadein 2s;
+    -ms-animation: fadein 2s;
+    -o-animation: fadein 2s;
+    background: var(--background-color);
+    box-shadow: var(--box-shadow);
     border-radius: 10px;
     width: 49%;
     margin-top: 30px;
@@ -1027,7 +1059,6 @@ input:focus::-moz-placeholder {
 
 .explications-explication p {
     color: rgb(219, 217, 217);
-    font-family: 'Anonymous Pro';
     font-size: 14px;
 }
 
@@ -1042,7 +1073,6 @@ input:focus::-moz-placeholder {
     border-left: 0;
     border-top: 0;
     color: rgb(219, 217, 217);
-    font-family: 'Anonymous Pro';
     font-size: 17px;
 }
 
@@ -1075,52 +1105,80 @@ input:focus::-moz-placeholder {
 
 .explications-explication table td li a {
     color: rgb(219, 217, 217);
-    font-family: 'Anonymous Pro';
     font-size: 14px;
     text-decoration: none;
 }
 
 .explications-explication table td li a:hover {
     color: white;
-    font-family: 'Anonymous Pro';
     font-size: 14.3px;
     text-decoration: none;
 }
 
 
+
+
 .explications-div-btn {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
     width: 49%;
-}
-
-.explication-direction-page-site {
-    animation: fadein 2s;
-    background: linear-gradient(-45deg, rgb(33, 35, 43), rgb(76, 80, 99));
-    box-shadow: 0 3px 6px rgb(0 0 0 / 20%), 0 3px 6px rgb(0 0 0 / 30%);
-    display: block;
-    border-radius: 10px;
-    text-align: center;
-    list-style-type: none;
-    color: rgb(219, 217, 217);
-    font-family: 'Anonymous Pro';
-    margin: 40px 18% 0 18%;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    transition: 0.25s;
-}
-
-.explication-direction-page-site:hover {
-    background: linear-gradient(-95deg, rgb(43, 46, 56), rgb(90, 95, 117));
-    text-decoration: none;
-    color: white;
-    font-family: 'Anonymous Pro';
-    font-size: 26px;
+    margin-top: 30px;
 }
 
 .explications-div-btn a {
+    background: var(--background-color);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48%;
+    height: 130px;
+    border-radius: 10px;
     text-decoration: none;
     color: rgb(219, 217, 217);
-    font-family: 'Anonymous Pro';
     font-size: 25px;
+}
+
+
+.explications-div-btn-a-1 {
+    animation:
+        nudge 1s linear normal;
+}
+
+.explications-div-btn-a-2 {
+    animation:
+        nudge 1.5s linear normal;
+}
+
+.explications-div-btn-a-3 {
+    animation:
+        nudge 2s linear normal;
+}
+
+.explications-div-btn-a-4 {
+    animation:
+        nudge 2.5s linear normal;
+}
+
+@keyframes nudge {
+
+    0%,
+    100% {
+        transform: translate(300px, 0);
+    }
+
+    100% {
+        transform: translate(0px, 0);
+    }
+}
+
+.explications-div-btn a:hover {
+    background: linear-gradient(-95deg, rgb(43, 46, 56), rgb(90, 95, 117));
+    color: white;
+    font-size: 26px;
 }
 
 
@@ -1133,6 +1191,10 @@ input:focus::-moz-placeholder {
 /* BOX IMG CSS */
 .div-box {
     animation: fadein 2s;
+    -webkit-animation: fadein 2s;
+    -moz-animation: fadein 2s;
+    -ms-animation: fadein 2s;
+    -o-animation: fadein 2s;
     width: 100%;
     padding-top: 10%;
     padding-bottom: 4%;
@@ -1177,7 +1239,7 @@ input:focus::-moz-placeholder {
     left: 0;
     width: 100px;
     height: 100px;
-    background: linear-gradient(-45deg, rgb(33, 35, 43), rgb(76, 80, 99));
+    background: var(--background-color);
     transform-origin: center;
     transform-style: preserve-3d;
     transform: rotateY(calc(var(--i) * 45deg)) translateZ(200px);

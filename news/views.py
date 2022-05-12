@@ -262,5 +262,5 @@ def explication(request):
 #     bd_insert = Site.objects.create(
 #         title=x[0],
 #         url=x[2],
-#         url_site=x[1]
-#         type=x[3])
+#         url_site=x[1],
+#         type_=x[3])
