@@ -99,7 +99,7 @@ try:
             datepubli_article = i.pubdate.text
             datepubli_article = datepubli_article[:-5]
             date_publi_article = parser.parse(datepubli_article)
-            time_change = datetime.timedelta(hours=2)
+            time_change = datetime.timedelta(hours=4)
             date_publi_article = date_publi_article + time_change
 
             # Category
