@@ -1055,7 +1055,7 @@ input:focus::-moz-placeholder {
     border-radius: 10px;
     width: 49%;
     margin-top: 30px;
-    padding: 15px 15px 5% 15px;
+    padding: 15px 15px 2% 15px;
 }
 
 .explications-explication p {
