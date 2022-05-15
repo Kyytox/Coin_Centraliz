@@ -22,6 +22,10 @@ def index(request):
 
     date_now = datetime.datetime.now()
 
+    # serveur avec 2 heure de retard en PROD
+    # time_change = datetime.timedelta(hours=2)
+    # date_now = date_now + time_change
+
     #
     # Articles
     # collect first 150 news articles
@@ -84,6 +88,9 @@ def index(request):
 def sites_actus(request):
 
     date_now = datetime.datetime.now()
+    # serveur avec 2 heure de retard en PROD
+    # time_change = datetime.timedelta(hours=2)
+    # date_now = date_now + time_change
 
     # collect all media for add interval publication
     list_article = Article.objects.all()
@@ -136,6 +143,9 @@ def media(request):
 
     # collect date now
     date_now = datetime.datetime.now()
+    # serveur avec 2 heure de retard en PROD
+    # time_change = datetime.timedelta(hours=2)
+    # date_now = date_now + time_change
 
     # collect all media for add interval publication
     list_media = Media.objects.all()
