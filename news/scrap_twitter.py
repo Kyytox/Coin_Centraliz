@@ -19,7 +19,7 @@ try:
         if i >= 2:
             break
 
-        # recupr des 40 premiers caracteres
+        # recupr des 25 premiers caracteres
         tweet_user = tweet.content[:25]
 
         # on cherche la position da @
