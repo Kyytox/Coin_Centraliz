@@ -24,6 +24,9 @@ try:
 
     for url in cur.fetchall():
         print('x: ', url[0])
+        if url[0] == 'https://anchor.fm/s/8f4024c/podcast/rss':
+            break
+
         xml_data = requests.get(url[0]).content
         soup = BeautifulSoup(xml_data, "html.parser")
 

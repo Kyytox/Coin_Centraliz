@@ -4,7 +4,7 @@ import psycopg2
 print("Lancement insert BD")
 
 
-list_site_ajout = [['CryptoNews', 'https://fr.cryptonews.com/news/feed/', 'https://fr.cryptonews.com/', 'Article'],
+list_site_ajout = [['CryptoNews', 'https://fr.cryptonews.com/', 'https://fr.cryptonews.com/news/feed/', 'Article'],
                    ['Journal du coin', 'https://journalducoin.com/',
                        'https://journalducoin.com/feed/', 'Article'],
                    ['CryptToast', 'https://cryptoast.fr/',

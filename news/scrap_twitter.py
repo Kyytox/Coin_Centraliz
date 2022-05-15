@@ -15,7 +15,7 @@ try:
     cur = conn.cursor()
 
     # Using TwitterSearchScraper to scrape x records from username @jack
-    for i, tweet in enumerate(sntwitter.TwitterSearchScraper('from:Kytox_ include:nativeretweets').get_items()):
+    for i, tweet in enumerate(sntwitter.TwitterSearchScraper('from:CoinCentraliz include:nativeretweets').get_items()):
         if i >= 2:
             break
 
