@@ -209,6 +209,8 @@ body {
 .main-media-author,
 .main-tweet-author {
     width: 8%;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
 }
 
 .main-article-site p,
