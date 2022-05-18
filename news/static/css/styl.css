@@ -757,7 +757,7 @@
         background: var(--background-color);
         border-radius: 10px;
         overflow-y: scroll;
-        max-height: 700px;
+        max-height: 650px;
     }
 
     .environnement-line-media {
@@ -1807,7 +1807,14 @@
 
     /* BOX IMG CSS */
 
-    .media-div-img-css-article,
+    .media-div-img-css-article {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 2%;
+        margin-left: 32%;
+    }
+
     .media-div-img-css-trading,
     .media-div-img-css-fonda {
         display: flex;
