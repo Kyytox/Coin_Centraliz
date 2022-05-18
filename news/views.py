@@ -47,8 +47,8 @@ def index(request):
 
     #
     # Media
-    # collect first 50 news media
-    for media in Media.objects.all()[:50]:
+    # collect first 100 news media
+    for media in Media.objects.all()[:100]:
         # calcul interval between date no and date publi of article and collect days, hours or minutes
         date_interval = date_now.replace(
             tzinfo=datetime.timezone.utc) - media.datepubli
@@ -82,7 +82,7 @@ def index(request):
         update_interval_publi_tweet.save()  # make update => call def in Models tweet
 
     # we retrieve the first x Article-Media-Tweet with new interval date publi
-    return render(request, 'news/index.html', {'Latest_articles': Article.objects.all()[:150], 'Latest_media': Media.objects.all()[:50], 'Latest_tweet': Tweet.objects.all()[:100]})
+    return render(request, 'news/index.html', {'Latest_articles': Article.objects.all()[:150], 'Latest_media': Media.objects.all()[:100], 'Latest_tweet': Tweet.objects.all()[:100]})
 
 
 def sites_actus(request):
@@ -173,6 +173,7 @@ def media(request):
 
         # update BD for add interval_publi
         # collect line BD with title
+        print('test', media.title)
         update_interval_publi_media = Media.objects.get(title=media.title)
         # update champ interval_publi
         update_interval_publi_media.interval_publi = interval_publi
