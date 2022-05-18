@@ -19,6 +19,8 @@ list_site_ajout = [['CryptoNews', 'https://fr.cryptonews.com/', 'https://fr.cryp
                        'https://www.cointribune.com/feed/', 'Article'],
                    ['CryptoActu', 'https://cryptoactu.com/',
                        'https://cryptoactu.com/feed/', 'Article'],
+                   ['Cryptovore', 'https://www.cryptovore.fr/',
+                       'https://www.cryptovore.fr/feed/', 'Article'],
                    ['Grand Angle Crypto', 'https://www.youtube.com/channel/UCT5FYQ_io06t7aY8rShgzvA',
                        'https://www.youtube.com/feeds/videos.xml?channel_id=UCT5FYQ_io06t7aY8rShgzvA', 'Media'],
                    ['Découvre Bitcoin', 'https://www.youtube.com/channel/UCANjJ55UmYmoXm_SW--psXQ',
@@ -67,7 +69,9 @@ list_site_ajout = [['CryptoNews', 'https://fr.cryptonews.com/', 'https://fr.cryp
                        'https://www.youtube.com/feeds/videos.xml?channel_id=UCZioDtSSkxEmeN0Iqv9neHA', 'Media'],
                    ['Khalistas to the moon', 'https://www.youtube.com/channel/UCUE_Y-qamqLT-5bsihtCphw',
                        'https://www.youtube.com/feeds/videos.xml?channel_id=UCUE_Y-qamqLT-5bsihtCphw', 'Trading'],
-                   ['Captain Trading', 'https://www.youtube.com/channel/UCJdx6xfJVFLXJuv9I7ECuRA', 'https://www.youtube.com/feeds/videos.xml?channel_id=UCJdx6xfJVFLXJuv9I7ECuRA', 'Trading']]
+                   ['Captain Trading', 'https://www.youtube.com/channel/UCJdx6xfJVFLXJuv9I7ECuRA',
+                       'https://www.youtube.com/feeds/videos.xml?channel_id=UCJdx6xfJVFLXJuv9I7ECuRA', 'Trading'],
+                   ["CoinAcademy - L'univers crypto en profondeur", 'https://www.youtube.com/channel/UCaoBf--cwOoZ4aZlkPWsG2A', 'https://www.youtube.com/feeds/videos.xml?channel_id=UCaoBf--cwOoZ4aZlkPWsG2A', 'Media']]
 
 
 try:
