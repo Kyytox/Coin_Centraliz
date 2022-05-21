@@ -11,8 +11,8 @@
     <li class=li-section-navbar {% if request.resolver_match.url_name == 'media' %}id="active"{% endif %}>
         <a href="{% url 'media' %}">Media</a>
     </li>
-    <li class=li-section-navbar style="background-color:green" >
-        <a href="{% url 'environnement' %}">ENVIRONNEMENT</a>
+    <li class=li-section-navbar>
+        <a style="color:green" href="{% url 'environnement' %}">ENVIRONNEMENT</a>
     </li>
     <li class="li-section-navbar-explication" {% if request.resolver_match.url_name == 'explication' %}id="active"{% endif %}>
         <a href="{% url 'explication' %}">Qu'est ce que Coin Centraliz ?</a>
