@@ -9,6 +9,7 @@ from django.db import models
 # type
 list_type = (
     ("Article", "Article"),
+    ('Newsletter', 'Newsletter'),
     ("Media", "Media"),
     ('Bitcoin', 'Bitcoin'),
     ("Trading", "Trading"),
