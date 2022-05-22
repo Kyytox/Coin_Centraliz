@@ -41,8 +41,13 @@
 
 <div class="div-type-media">
     <form action="{% url 'media' %}" method="GET">
+        <input type="hidden" name="q" value="Bitcoin">
+        <button class="btn-type-media" type="submit">Bitcoin</button>
+    </form>
+
+    <form action="{% url 'media' %}" method="GET">
         <input type="hidden" name="q" value="Media">
-        <button class="btn-type-media" type="submit">Fondamentaux</button>
+        <button class="btn-type-media" type="submit">Cryptos</button>
     </form>
 
     <form action="{% url 'media' %}" method="GET">
