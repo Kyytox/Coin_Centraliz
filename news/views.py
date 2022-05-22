@@ -87,6 +87,8 @@ def index(request):
 
 def sites_actus(request):
 
+    type_media = 'Article' if request.GET == {} else request.GET['q']
+
     date_now = datetime.datetime.now()
     # serveur avec 2 heure de retard en PROD
     # time_change = datetime.timedelta(hours=2)
@@ -118,7 +120,7 @@ def sites_actus(request):
         update_interval_publi.interval_publi = interval_publi  # update champ interval_publi
         update_interval_publi.save()  # make update => call def in Models Article
 
-    list_site_article = list(Site.objects.filter(type='Article'))
+    list_site_article = list(Site.objects.filter(type=type_media))
 
     # trie random de la liste
     random.shuffle(list_site_article)
@@ -134,7 +136,7 @@ def sites_actus(request):
         list_all_articles.append(
             [list_site_article[i].title, list_append_article])
 
-    return render(request, 'news/sites_actus.html', {'list_site_article': list_site_article, 'list_all_articles': list_all_articles, 'count_site': range(count_site)})
+    return render(request, 'news/sites_actus.html', {'list_site_article': list_site_article, 'list_all_articles': list_all_articles, 'type_media': type_media, 'count_site': range(count_site)})
 
 
 def media(request):
@@ -173,7 +175,7 @@ def media(request):
 
         # update BD for add interval_publi
         # collect line BD with title
-        print('test', media.title)
+        # print('test', media.title)
         update_interval_publi_media = Media.objects.get(title=media.title)
         # update champ interval_publi
         update_interval_publi_media.interval_publi = interval_publi

@@ -610,11 +610,6 @@
 
 
 
-
-
-
-
-
     .sites-actus-newsletter {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -660,8 +655,9 @@
         background: -webkit-linear-gradient(175deg, rgb(14, 15, 19), rgb(46, 48, 59));
         background: linear-gradient(-85deg, rgb(14, 15, 19), rgb(46, 48, 59));
         border-radius: 10px 0 0 10px;
-        padding: 20px 0 10px 0;
+        padding: 20px 0 0 0;
         width: 70%;
+        max-height: 100px;
         vertical-align: middle;
     }
 
@@ -677,6 +673,7 @@
         text-align: center;
         width: 100%;
         margin-top: 25px;
+        margin-bottom: 10px;
     }
 
     .sites-actus-newsletter-abonner a {
@@ -1826,6 +1823,28 @@
         /* margin-bottom: 20px; */
     }
 
+
+
+
+    .sites-actus-newsletter {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: center;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+
+
     .main-div-article {
         border-bottom: 0.3px solid gray;
         display: -webkit-box;
@@ -2174,6 +2193,12 @@
 
     .sites-actus-article-interval-publi p {
         padding-left: 5px;
+    }
+
+    .sites-actus-newsletter-box-site {
+        width: 48%;
+        margin-bottom: 30px;
+        margin-right: 10px;
     }
 
 
