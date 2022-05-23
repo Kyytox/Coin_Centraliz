@@ -141,7 +141,7 @@ def sites_actus(request):
 
 def media(request):
 
-    type_media = 'Media' if request.GET == {} else request.GET['q']
+    type_media = 'Bitcoin' if request.GET == {} else request.GET['q']
 
     # collect date now
     date_now = datetime.datetime.now()
@@ -231,7 +231,14 @@ def SearchCategory(request):
 
 def explication(request):
 
-    list_site_article = Site.objects.filter(type='Article')
-    list_site_media = Site.objects.filter(type='Media')
+    list_site_actus_article = Site.objects.filter(type='Article')
+    list_site_actus_newsletter = Site.objects.filter(type='Newsletter')
+    list_site_media_media = Site.objects.filter(type='Media')
+    list_site_media_bitcoin = Site.objects.filter(type='Bitcoin')
+    list_site_media_trading = Site.objects.filter(type='Trading')
 
-    return render(request, 'news/explication.html', {'list_site_article': list_site_article, 'list_site_media': list_site_media})
+    return render(request, 'news/explication.html', {'list_site_actus_article': list_site_actus_article,
+                                                     'list_site_actus_newsletter': list_site_actus_newsletter,
+                                                     'list_site_media_media': list_site_media_media,
+                                                     'list_site_media_bitcoin': list_site_media_bitcoin,
+                                                     'list_site_media_trading': list_site_media_trading, })

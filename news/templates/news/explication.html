@@ -6,46 +6,59 @@
 
 
 <div class="div-explaication-main">
-    <div class="explications-explication">
-        <p>Coin Centraliz est un agrégateur de contenu crypto</p>
-        <p>Vous trouverez plusieurs types d'informations: </p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Actus Journaux</th>
-                    <th>Medias / vidéos</th>
-                    <th>Tweets</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="explication-table-td-actus-journaux">
-                        {% for article in list_site_article %}
-                            <li><a href={{ article.url_site }}>{{ article.title }}</a></li>
-                        {% endfor %}
-                    </td>
-                    <td class="explication-table-td-media">
-                        {% for media in list_site_media %}
-                            <li><a href={{ media.url_site }}>{{ media.title }}</a></li>
-                        {% endfor %}
-                    </td>
-                    <td class="explication-table-td-tweet">
-                        <p>Un bot Twitter a été créer, <a href="https://twitter.com/CoinCentraliz" style="color: blue; font-size: 18px;">@CoinCentraliz</a>, principalement pour récupérer des THREADS et les partager. 
-                            <br><br>Ce dernier va retweeter lorsqu'on le mentionnee et ensuite ce tweet sera ajouté en page d'accueil du site
-                            <br><br>Donc si vous voulez afficher / partager un tweet (THREAD) hésitez pas a mentionner le BOT
-                        </p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <div class="explications-explication-main">
+        <div class="explication-div-section">
+            <p>Coin Centraliz est un agrégateur de contenu crypto
+            <br><br>Vous trouverez plusieurs types de contenu: </p>
 
-    
-    <div class="explications-div-btn">
-        <a class="explications-div-btn-a-1" href="{% url 'index' %}">Dernières Actus</a>
-        <a class="explications-div-btn-a-2" href="{% url 'sites_actus' %}">Site Actus Journaux</a>
-        <a class="explications-div-btn-a-3" href="{% url 'media' %}">Media Vidéos</a>
-        <a class="explications-div-btn-a-4" href="{% url 'environnement' %}">Environnement & Crypto</a>
+            <div class="explication-box-category">
+                <h3>Sites Articles</h3>
+                {% for article in list_site_actus_article %}
+                    <a href={{ article.url_site }}>{{ article.title }}</a>
+                {% endfor %}
+            </div> 
+            <div class="explication-box-category">
+                <h3>Newsletter</h3>
+                {% for newsletter in list_site_actus_newsletter %}
+                    <a href={{ newsletter.url_site }}>{{ newsletter.title }}</a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="explication-div-section">
+            <div class="explication-box-category">
+                <h3>Bitcoin</h3>
+                {% for media_bitcoin in list_site_media_bitcoin %}
+                    <a href={{ media_bitcoin.url_site }}>{{ media_bitcoin.title }}</a>
+                {% endfor %}
+            </div> 
+            <div class="explication-box-category">
+                <h3>Secteurs Crypto</h3>
+                {% for media_crypto in list_site_media_media %}
+                    <a href={{ media_crypto.url_site }}>{{ media_crypto.title }}</a>
+                {% endfor %}
+            </div>
+            <div class="explication-box-category">
+                <h3>Trading</h3>
+                {% for media_trading in list_site_media_trading %}
+                    <a href={{ media_trading.url_site }}>{{ media_trading.title }}</a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="explication-div-section-tweet">
+            <p>Un bot Twitter a été créer, <a href="https://twitter.com/CoinCentraliz" style="color: blue; font-size: 18px;">@CoinCentraliz</a>, principalement pour récupérer des THREADS et les partager. 
+                <br><br><br>Ce dernier va retweeter lorsqu'on le mentionnee et ensuite ce tweet sera ajouté en page d'accueil du site
+                <br><br><br>Donc si vous voulez afficher / partager un tweet (THREAD) hésitez pas a mentionner le BOT
+            </p>
+        </div>
+
+        <div class="explication-div-section-btn">
+            <a class="explications-div-btn-a-1" href="{% url 'index' %}">Dernières Actus</a>
+            <a class="explications-div-btn-a-2" href="{% url 'sites_actus' %}">Site Actus Journaux</a>
+            <a class="explications-div-btn-a-3" href="{% url 'media' %}">Media Vidéos</a>
+            <a class="explications-div-btn-a-4" href="{% url 'environnement' %}">Environnement & Crypto</a>
+        </div>
     </div>
 </div>
 
