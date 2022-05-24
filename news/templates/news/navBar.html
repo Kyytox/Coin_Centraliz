@@ -1,30 +1,29 @@
 {% load static %}
 
 <div class="navBar">
-
-    <li class=li-section-navbar {% if request.resolver_match.url_name == 'index' %}id="active"{% endif %}>
+    <li class=li-section-navbar {% if request.resolver_match.url_name == 'index' %} id="active" {% endif %}>
         <a href="{% url 'index' %}">Dernières Actus</a>
     </li>
-    <li class=li-section-navbar {% if request.resolver_match.url_name == 'sites_actus' %}id="active"{% endif %}>
+    <li class=li-section-navbar {% if request.resolver_match.url_name == 'sites_actus' %} id="active" {% endif %}>
         <a href="{% url 'sites_actus' %}">Sites Actus</a>
     </li>
-    <li class=li-section-navbar {% if request.resolver_match.url_name == 'media' %}id="active"{% endif %}>
+    <li class=li-section-navbar {% if request.resolver_match.url_name == 'media' %} id="active" {% endif %}>
         <a href="{% url 'media' %}">Media</a>
     </li>
     <li class=li-section-navbar>
         <a style="color:green" href="{% url 'environnement' %}">ENVIRONNEMENT</a>
     </li>
-    <li class="li-section-navbar-explication" {% if request.resolver_match.url_name == 'explication' %}id="active"{% endif %}>
+    <li class="li-section-navbar-explication" {% if request.resolver_match.url_name == 'explication' %} id="active" {% endif %}>
         <a href="{% url 'explication' %}">Qu'est ce que Coin Centraliz ?</a>
     </li>
-    <li class='li-section-navbar-sociaux'>
+    <li class="li-section-navbar-sociaux">
         <span>
             <a href="https://twitter.com/CoinCentraliz">
                 <img src="{% static "img/twitter-sign.png"%}" alt="">
             </a>
         </span>
     </li>
-    <li class='li-section-navbar-sociaux'>
+    <li class="li-section-navbar-sociaux">
         <span>
             <a href="https://github.com/Kyytox/Coin_Centraliz">
                 <img src="{% static "img/github.png"%}" alt="">

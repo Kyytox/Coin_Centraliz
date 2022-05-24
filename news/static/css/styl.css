@@ -63,13 +63,15 @@
         justify-content: flex-start;
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
         -ms-flex-direction: row;
         flex-direction: row;
         margin-bottom: 40px;
     }
 
     .en-tete-title {
-        width: 30%;
+        width: 25%;
     }
 
     .en-tete-title h1 {
@@ -77,7 +79,7 @@
         color: white;
         font-size: 30px;
         margin: 0 0 0 5px;
-        padding: 10px 0 0 10px;
+        padding: 15px 0 0 15px;
         font-weight: bold;
     }
 
@@ -89,7 +91,9 @@
         float: left;
         list-style-type: none;
         border-radius: 10px;
+        vertical-align: bottom;
         text-align: center;
+        margin-top: 5px;
     }
 
     .navBar li:hover {
@@ -97,35 +101,31 @@
         border-radius: 10px;
     }
 
-    .navBar a {
+    .navBar li a {
         display: block;
-        padding: 12px 30px 12px 30px;
+        padding: 15px 32px 15px 32px;
         text-decoration: none;
+        text-align: center;
         color: white;
         font-size: 22px;
     }
 
-    .li-section-navbar-explication a {
-        font-size: 13px;
+    .navBar .li-section-navbar-explication a {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        font-size: 12px;
     }
 
-
-    .li-section-navbar-explication {
-        width: 14%;
-        margin-right: 17%;
+    .navBar .li-section-navbar-sociaux {
+        float: right;
     }
 
-    .li-section-navbar-sociaux {
-        width: 3.5%;
-        margin-right: 15px;
-    }
-
-    .li-section-navbar-sociaux a {
-        padding: 12px 10px 12px 10px;
+    .navBar .li-section-navbar-sociaux a {
+        padding: 15px 15px 15px 15px;
     }
 
     .navBar li img {
-        width: 30px;
+        width: 23px;
     }
 
 
@@ -1370,143 +1370,31 @@
     /* EXPLICATIONS PAGE */
     .div-explaication-main {
         margin: 0px;
-        height: 89vh;
+        height: 100%;
     }
 
 
     .explications-explication-main {
-        height: 100%;
-        overflow-y: scroll;
-        -ms-scroll-snap-type: y mandatory;
-        scroll-snap-type: y mandatory;
-    }
-
-    .explication-div-section {
-        height: 100%;
-        scroll-snap-align: center;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        -ms-flex-pack: distribute;
-        justify-content: space-around;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        -ms-flex-direction: row;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        flex-direction: row;
-        color: white;
-        font-size: 30px;
-        font-weight: bold;
-        padding: 0 1% 0 1%
-    }
-
-    .explication-div-section p {
-        width: 100%;
-        height: 15%;
-        font-family: 'Anonymous Pro';
-        color: rgb(219, 217, 217);
-        font-size: 25px;
-        text-align: center;
-        margin-bottom: 0;
-        animation: fadein 3s;
-        -webkit-animation: fadein 3s;
-        -moz-animation: fadein 3s;
-        -ms-animation: fadein 3s;
-        -o-animation: fadein 3s;
-    }
-
-
-    .explication-box-category {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-pack: distribute;
-        -webkit-box-pack: center;
-        justify-content: space-evenly;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        border-radius: 50px;
-        height: 48%;
-        width: 45%;
-        animation: fadein 5s;
-        -webkit-animation: fadein 5s;
-        -moz-animation: fadein 5s;
-        -ms-animation: fadein 5s;
-        -o-animation: fadein 5s;
-    }
-
-    .explication-div-section:nth-child(1) .explication-box-category,
-    .explication-div-section:nth-child(3) .explication-box-category {
-        background: -o-linear-gradient(135deg, rgb(65, 66, 71), rgb(100, 103, 119));
-        background: linear-gradient(-45deg, rgb(65, 66, 71), rgb(100, 103, 119));
-    }
-
-    .explication-div-section:nth-child(1) a,
-    .explication-div-section:nth-child(3) a {
-        background: -o-linear-gradient(135deg, rgb(23, 24, 26), rgb(49, 51, 63));
-        background: linear-gradient(-45deg, rgb(23, 24, 26), rgb(49, 51, 63));
-    }
-
-    .explication-div-section:nth-child(2) .explication-box-category,
-    .explication-div-section:nth-child(4) .explication-box-category {
-        background: -o-linear-gradient(135deg, rgb(23, 24, 26), rgb(49, 51, 63));
-        background: linear-gradient(-45deg, rgb(23, 24, 26), rgb(49, 51, 63));
-    }
-
-    .explication-div-section:nth-child(2) a,
-    .explication-div-section:nth-child(4) a {
-        background: -o-linear-gradient(135deg, rgb(65, 66, 71), rgb(100, 103, 119));
-        background: linear-gradient(-45deg, rgb(65, 66, 71), rgb(100, 103, 119));
-    }
-
-    .explication-box-category h3 {
-        width: 100%;
-        font-family: 'Anonymous Pro';
-        text-align: center;
-        margin: 0 0 0 0;
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-
-    .explication-box-category a {
-        font-family: 'Anonymous Pro';
-        border-radius: 10px;
-        padding: 15px;
-        margin-right: 20px;
-        color: white;
-        font-size: 15px;
-        text-decoration: none;
-    }
-
-
-    .explication-div-section-tweet {
-        height: 100%;
-        scroll-snap-align: center;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
         justify-content: center;
-        -ms-flex-direction: column;
-        -webkit-box-orient: vertical;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
-        flex-direction: column;
-        color: white;
-        font-size: 30px;
-        font-weight: bold;
-        padding: 0 1% 0 1%
+        -ms-flex-direction: row;
+        flex-direction: row;
     }
 
-    .explication-div-section-tweet p {
+    .explication-main-présentation {
+        width: 100%;
+        margin-bottom: 2%;
+    }
+
+    .explication-main-présentation p {
         width: 100%;
         font-family: 'Anonymous Pro';
         color: rgb(219, 217, 217);
@@ -1520,63 +1408,75 @@
         -o-animation: fadein 3s;
     }
 
-
-
-
-    .explication-div-section-btn {
-        height: 100%;
-        scroll-snap-align: center;
+    .explication-main-box {
+        width: 33%;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        -ms-flex-pack: distribute;
-        justify-content: space-around;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -ms-flex-direction: row;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: center;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
+        -ms-flex-direction: row;
         flex-direction: row;
-        color: white;
-        font-size: 30px;
-        font-weight: bold;
-        padding: 0 1% 0 1%
+        animation: fadein 3s;
+        -webkit-animation: fadein 3s;
+        -moz-animation: fadein 3s;
+        -ms-animation: fadein 3s;
+        -o-animation: fadein 3s;
     }
 
-
-
-    .explications-div-btn-a-1,
-    .explications-div-btn-a-2,
-    .explications-div-btn-a-3,
-    .explications-div-btn-a-4 {
+    .explication-category {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: center space-evenly;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
         background: var(--background-color);
-        -webkit-box-shadow: var(--box-shadow);
-        box-shadow: var(--box-shadow);
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        width: 20%;
-        height: 100px;
+        width: 90%;
         border-radius: 10px;
-        text-decoration: none;
-        color: rgb(219, 217, 217);
-        font-size: 25px;
-        font-family: 'Anonymous Pro';
-        text-align: center;
+        margin-bottom: 15px;
+        padding: 5px;
+        height: min-content;
     }
 
-    .explication-div-section-btn a:hover {
-        background: -o-linear-gradient(185deg, rgb(43, 46, 56), rgb(90, 95, 117));
-        background: linear-gradient(-95deg, rgb(43, 46, 56), rgb(90, 95, 117));
+    .explication-category h4 {
+        width: 100%;
+        margin: 10px 0 8px 0;
+        font-family: 'Anonymous Pro';
         color: white;
-        font-size: 26px;
+        font-size: 17px;
+        text-decoration: underline;
+    }
+
+
+    .explication-category a {
+        font-family: 'Anonymous Pro';
+        border-radius: 10px;
+        padding: 14.5px;
+        color: rgb(219, 217, 217);
+        font-size: 17px;
+        text-decoration: none;
+    }
+
+    .explication-main-box p {
+        font-family: 'Anonymous Pro';
+        vertical-align: middle;
+        border-radius: 10px;
+        padding: 10px;
+        color: rgb(219, 217, 217);
+        font-size: 17px;
+        text-decoration: none;
     }
 
     /* EXPLICATIONS PAGE */
@@ -2310,100 +2210,18 @@
 
 
 
+
     /* EXPLICATIONS PAGE */
-    .div-explaication-main {
-        margin: 0px;
-        height: auto;
+    .explication-main-présentation p {
+        margin-bottom: 70px;
     }
 
-
-    .explications-explication-main {
-        height: auto;
-        overflow-y: visible;
-        -ms-scroll-snap-type: none;
-        scroll-snap-type: none;
+    .explication-main-box {
+        width: 70%;
     }
 
-
-    .explication-box-category:nth-child(1) {
-        background: -o-linear-gradient(135deg, rgb(23, 24, 26), rgb(49, 51, 63));
-        background: linear-gradient(-45deg, rgb(23, 24, 26), rgb(49, 51, 63));
-    }
-
-    .explication-box-category:nth-child(1) a {
-        background: -o-linear-gradient(135deg, rgb(65, 66, 71), rgb(100, 103, 119));
-        background: linear-gradient(-45deg, rgb(65, 66, 71), rgb(100, 103, 119));
-    }
-
-
-    .explication-box-category {
-        padding-bottom: 20px;
-        height: auto;
-        width: 80%;
-        margin-bottom: 50px;
-    }
-
-    .explication-box-category a {
-        margin-bottom: 10px;
-    }
-
-    .explication-div-section-tweet {
-        height: 100%;
-        scroll-snap-align: center;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -ms-flex-direction: column;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        flex-direction: column;
-        color: white;
-        font-size: 30px;
-        font-weight: bold;
-        margin: 20% 0 20% 0;
-        padding: 0 1% 0 1%
-    }
-
-    .explication-div-section p {
-        width: 100%;
-        font-family: 'Anonymous Pro';
-        color: rgb(219, 217, 217);
-        font-size: 25px;
-        text-align: center;
-        margin-bottom: 10%;
-        animation: fadein 3s;
-        -webkit-animation: fadein 3s;
-        -moz-animation: fadein 3s;
-        -ms-animation: fadein 3s;
-        -o-animation: fadein 3s;
-    }
-
-
-
-
-    .explication-div-section-btn {
-        flex-direction: column;
-    }
-
-
-
-    .explications-div-btn-a-1,
-    .explications-div-btn-a-2,
-    .explications-div-btn-a-3,
-    .explications-div-btn-a-4 {
-        width: 51%;
-        margin-bottom: 10%;
-        text-align: center;
-    }
-
-    .explication-div-section-btn a:hover {
-        background: -o-linear-gradient(185deg, rgb(43, 46, 56), rgb(90, 95, 117));
-        background: linear-gradient(-95deg, rgb(43, 46, 56), rgb(90, 95, 117));
-        color: white;
-        font-size: 26px;
+    .explication-category {
+        margin-bottom: 25px;
     }
 
     /* EXPLICATIONS PAGE */
