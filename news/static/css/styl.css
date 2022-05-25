@@ -33,11 +33,9 @@
         background: -webkit-gradient(linear, left top, right top, from(rgb(8, 8, 8)), torgb(72, 73, 82));
         background: -webkit-linear-gradient(left, rgb(8, 8, 8), rgb(72, 73, 82));
         background: linear-gradient(90deg, rgb(8, 8, 8), rgb(72, 73, 82));
-        /* background: linear-gradient(-45deg, rgb(33, 35, 43), rgb(76, 80, 99)); */
         height: 100%;
         --background-color: linear-gradient(-45deg, rgb(33, 35, 43), rgb(76, 80, 99));
-        /* --background-color: linear-gradient(90deg, rgb(8, 8, 8), rgb(49, 50, 56)); */
-        --box-shadow: 0 3px 6px rgb(0 0 0 / 20%), 0 3px 6px rgb(0 0 0 / 30%);
+        --box-shadow: 0 7px 15px rgb(0 0 0 / 50%), 0 3px 6px rgb(0 0 0 / 50%);
         font-family: 'Anonymous Pro';
         margin: 0;
         width: auto;
@@ -186,23 +184,13 @@
         margin-top: -210px;
     }
 
-    #derniers-media {
-        animation: fadein 2s;
-        -webkit-animation: fadein 2s;
-        -moz-animation: fadein 2s;
-        -ms-animation: fadein 2s;
-        -o-animation: fadein 2s;
+    #derniers-media,
+    #derniers-tweet {
         height: 400px;
-        margin-bottom: 15px;
     }
 
-    #derniers-tweet {
-        animation: fadein 2s;
-        -webkit-animation: fadein 2s;
-        -moz-animation: fadein 2s;
-        -ms-animation: fadein 2s;
-        -o-animation: fadein 2s;
-        height: 400px;
+    #derniers-media {
+        margin-bottom: 15px;
     }
 
 
@@ -530,6 +518,7 @@
 
     .sites-actus-box-site {
         box-shadow: var(--box-shadow);
+        border-radius: 10px;
         width: 32%;
         margin-bottom: 20px;
         animation: fadein 1.5s;
@@ -911,6 +900,7 @@
 
     .media-media {
         box-shadow: var(--box-shadow);
+        border-radius: 10px;
         width: 32%;
         animation: fadein 2s;
         -webkit-animation: fadein 2s;
@@ -923,7 +913,7 @@
     .media-influ-name {
         background: -webkit-linear-gradient(175deg, rgb(14, 15, 19), rgb(46, 48, 59));
         background: linear-gradient(-85deg, rgb(14, 15, 19), rgb(46, 48, 59));
-        border-radius: 10px 10px 10px 0;
+        border-radius: 10px 10px 0 0;
         padding: 20px 0 20px 0;
     }
 
@@ -1335,7 +1325,6 @@
         padding: 5px 0px 5px 5px;
         border-width: 0px;
         border-radius: 10px;
-        font-family: « Arial Narrow », Arial, sans-serif;
         font-size: 13px;
         color: #383737;
         width: 15%;
@@ -1380,7 +1369,7 @@
         display: flex;
         -webkit-box-pack: start;
         -ms-flex-pack: start;
-        justify-content: center;
+        justify-content: stretch;
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         -webkit-box-orient: horizontal;
@@ -1396,7 +1385,6 @@
 
     .explication-main-présentation p {
         width: 100%;
-        font-family: 'Anonymous Pro';
         color: rgb(219, 217, 217);
         font-size: 25px;
         text-align: center;
@@ -1415,13 +1403,14 @@
         display: flex;
         -webkit-box-pack: start;
         -ms-flex-pack: start;
-        justify-content: center;
+        justify-content: stretch;
+        align-items: center;
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
+        -ms-flex-direction: column;
+        flex-direction: column;
         animation: fadein 3s;
         -webkit-animation: fadein 3s;
         -moz-animation: fadein 3s;
@@ -1453,7 +1442,6 @@
     .explication-category h4 {
         width: 100%;
         margin: 10px 0 8px 0;
-        font-family: 'Anonymous Pro';
         color: white;
         font-size: 17px;
         text-decoration: underline;
@@ -1461,7 +1449,6 @@
 
 
     .explication-category a {
-        font-family: 'Anonymous Pro';
         border-radius: 10px;
         padding: 14.5px;
         color: rgb(219, 217, 217);
@@ -1470,7 +1457,6 @@
     }
 
     .explication-main-box p {
-        font-family: 'Anonymous Pro';
         vertical-align: middle;
         border-radius: 10px;
         padding: 10px;
@@ -2129,6 +2115,11 @@
         opacity: 0;
     }
 
+
+    .sites-actus-newsletter-site-name {
+        padding: 13px 0 0 0;
+    }
+
     /* Sites-Actus */
 
 
@@ -2214,6 +2205,11 @@
     /* EXPLICATIONS PAGE */
     .explication-main-présentation p {
         margin-bottom: 70px;
+    }
+
+    .explications-explication-main {
+        justify-content: center;
+
     }
 
     .explication-main-box {
@@ -2334,30 +2330,14 @@
     /* BOX IMG CSS */
 
     .media-div-img-css-article {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        margin-top: 2%;
-        margin-left: 32%;
+        visibility: hidden;
+        height: 5px;
     }
 
     .media-div-img-css-trading,
     .media-div-img-css-fonda {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        margin-top: 2%;
-        margin-left: 0;
+        visibility: hidden;
+        height: 5px;
     }
 
     .box {
