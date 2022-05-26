@@ -19,7 +19,7 @@ list_type = (
 
 
 class Site(models.Model):
-    title = models.fields.CharField(max_length=50)
+    title = models.fields.CharField(max_length=80)
     url = models.fields.CharField(max_length=100)
     url_site = models.fields.CharField(max_length=100, null=True)
     description = models.fields.CharField(max_length=2000, null=True)
@@ -42,7 +42,7 @@ class Site(models.Model):
 
 class Article(models.Model):
     title = models.fields.CharField(max_length=150)
-    author = models.fields.CharField(max_length=40)
+    author = models.fields.CharField(max_length=80)
     datepubli = models.fields.DateTimeField(auto_now=False)
     description = models.fields.CharField(max_length=2000)
     category_1 = models.fields.CharField(max_length=15, null=True)
