@@ -48,20 +48,18 @@
         {% endfor %}
     </div>
 {% else %}
-    <div class="sites-actus-newsletter">
+    <div class="main-live">
         {% for site in list_site_article %}
-            <div class="sites-actus-newsletter-box-site">
-                <div class="sites-actus-newsletter-site-name">
-                    <p>{{ site.title }}</p>
-                    <div class="sites-actus-newsletter-abonner">
-                        <a href="{{ site.url_site }}">S'abonner</a>
-                    </div>
+            <div class="live-box-live">
+                <div class="live-influ-img">
+                    <a href="{{ site.url_site }}"><img class="" src="/static/img/newsletter/{{ site.title }}.jpg" alt="{{ site.title }}"></a>
                 </div>
-                <div class="sites-actus-newsletter-img">
-                    <a href="{{ site.url_site }}"><img src="/static/img/newsletter/{{ site.title }}.jpg" alt=""></a>
+                <div class="live-influ-name">
+                    <a href="{{ site.url_site }}">{{ site.title }}</a>
                 </div>
             </div>
         {% endfor %}
     </div>
 {% endif %}
 {% endblock %}
+

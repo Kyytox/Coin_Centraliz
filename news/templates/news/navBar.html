@@ -10,6 +10,9 @@
     <li class=li-section-navbar {% if request.resolver_match.url_name == 'media' %} id="active" {% endif %}>
         <a href="{% url 'media' %}">Media</a>
     </li>
+    <li class=li-section-navbar {% if request.resolver_match.url_name == 'live' %} id="active" {% endif %}>
+        <a href="{% url 'live' %}">Live</a>
+    </li>
     <li class=li-section-navbar>
         <a style="color:green" href="{% url 'environnement' %}">ENVIRONNEMENT</a>
     </li>

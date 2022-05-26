@@ -3,12 +3,14 @@ from datetime import datetime
 from doctest import testfile
 from pydoc import importfile
 from django.shortcuts import render
+from numpy import tile
 from news.models import Article, Media, Site, Tweet
 import datetime
 import random
 from dateutil.relativedelta import relativedelta
 from django.db import connection
 from django.db.models import Q
+from twitchAPI.twitch import Twitch
 
 
 def index(request):
@@ -39,7 +41,7 @@ def index(request):
 
         # update BD for add interval_publi
         update_interval_publi_article = Article.objects.get(
-            title=article.title)  # collect line BD with title
+            url=article.url)  # collect line BD with title
         # update champ interval_publi
         update_interval_publi_article.interval_publi = interval_publi
         # make update => call def in Models Article
@@ -58,7 +60,8 @@ def index(request):
 
         # update BD for add interval_publi
         # collect line BD with title
-        update_interval_publi_media = Media.objects.get(title=media.title)
+        # print("titre :", media.title)
+        update_interval_publi_media = Media.objects.get(url=media.url)
         # update champ interval_publi
         update_interval_publi_media.interval_publi = interval_publi
         update_interval_publi_media.save()  # make update => call def in Models Media
@@ -76,13 +79,31 @@ def index(request):
 
         # update BD for add interval_publi
         # collect line BD with title
-        update_interval_publi_tweet = Tweet.objects.get(title=tweet.title)
+        update_interval_publi_tweet = Tweet.objects.get(url=tweet.url)
         # update champ interval_publi
         update_interval_publi_tweet.interval_publi = interval_publi
         update_interval_publi_tweet.save()  # make update => call def in Models tweet
 
+    #
+    # Twitch
+    # connect to twitch and collect all fr streamer online in category Crypto
+    list_stream_online = []
+    twitch = Twitch('1paxqmgze600do5zd5hbm9yv3rxfvs',
+                    '72ybpbsy6xffrtvb16t4rc16xrkrnl')
+    req = twitch.get_streams(game_id=['499634'], language=['fr'])
+    list_infos_streams = req['data']
+    for stream in list_infos_streams:
+        user_name = stream['user_name']
+        title = stream['title']
+        req_user = twitch.get_users(logins=[user_name])
+        list_infos_user = req_user['data']
+        for user in list_infos_user:
+            thumbnail_url = user['profile_image_url']
+
+            list_stream_online.append([user_name, title, thumbnail_url])
+
     # we retrieve the first x Article-Media-Tweet with new interval date publi
-    return render(request, 'news/index.html', {'Latest_articles': Article.objects.all()[:150], 'Latest_media': Media.objects.all()[:100], 'Latest_tweet': Tweet.objects.all()[:100]})
+    return render(request, 'news/index.html', {'Latest_articles': Article.objects.all()[:150], 'Latest_media': Media.objects.all()[:100], 'Latest_tweet': Tweet.objects.all()[:100], 'list_stream_online': list_stream_online})
 
 
 def sites_actus(request):
@@ -116,7 +137,7 @@ def sites_actus(request):
 
         # update BD for add interval_publi
         # collect line BD with title
-        update_interval_publi = Article.objects.get(title=article.title)
+        update_interval_publi = Article.objects.get(url=article.url)
         update_interval_publi.interval_publi = interval_publi  # update champ interval_publi
         update_interval_publi.save()  # make update => call def in Models Article
 
@@ -131,8 +152,8 @@ def sites_actus(request):
     list_all_articles = []
     i = 0
     for i in range(count_site):
-        list_append_article = list(Article.objects.filter(
-            site=list_site_article[i].title))
+        list_append_article = list(
+            Article.objects.filter(site=list_site_article[i].title))
         list_all_articles.append(
             [list_site_article[i].title, list_append_article])
 
@@ -176,7 +197,7 @@ def media(request):
         # update BD for add interval_publi
         # collect line BD with title
         # print('test', media.title)
-        update_interval_publi_media = Media.objects.get(title=media.title)
+        update_interval_publi_media = Media.objects.get(url=media.url)
         # update champ interval_publi
         update_interval_publi_media.interval_publi = interval_publi
         update_interval_publi_media.save()  # make update => call def in Models Media
@@ -197,6 +218,15 @@ def media(request):
         list_all_media.append([list_site_media[i].title, list_append_media])
 
     return render(request, 'news/media.html', {'list_site_media': list_site_media, 'list_all_media': list_all_media, 'type_media': type_media, 'count_site': range(count_site), 'random_media': random_media})
+
+
+def live(request):
+
+    # Twitch
+    # collect all streamer in table site with type = Twitch
+    list_stream_online = Site.objects.filter(type='Twitch')
+
+    return render(request, 'news/live.html', {'list_stream_online': list_stream_online})
 
 
 def environnement(request):

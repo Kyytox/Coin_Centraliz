@@ -48,7 +48,7 @@ try:
     cur = conn.cursor()
 
     sql_site_article = "SELECT title FROM news_site WHERE url = %s"
-    sql_verif_article = "SELECT title FROM news_article WHERE title = %s"
+    sql_verif_article = "SELECT url FROM news_article WHERE url = %s"
     sql_article_url = "SELECT url FROM news_site WHERE type = 'Article'"
     cur.execute(sql_article_url)
 
@@ -70,15 +70,16 @@ try:
 
         # loops all tags "items" and collect title; guid(url); description; date publication
         for i in items:
-            # title
+            # title and URL
             title_article = i.title.text
+            url_article = i.guid.text
 
             # verif if title as 'Graphiques Floor price', if true pass next i
             if site_article == 'CoinAcademy' and ('Graphiques Floor price' or 'graphiques et prédiction') in title_article:
                 continue
 
             # verif if article exist in Article table
-            cur.execute(sql_verif_article, (title_article,))
+            cur.execute(sql_verif_article, (url_article,))
             result_sql_verif_article = cur.fetchone()
 
             if result_sql_verif_article is not None:
@@ -89,8 +90,7 @@ try:
             author_article = '' if site_article == 'CryptoNews' else i.find(
                 'dc:creator').text
 
-            # URL and Description
-            url_article = i.guid.text
+            # Description
             description_article_convert = i.description.text
             description_article = BeautifulSoup(
                 description_article_convert, "html.parser")

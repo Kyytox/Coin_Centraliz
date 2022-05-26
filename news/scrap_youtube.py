@@ -18,7 +18,7 @@ try:
     cur = conn.cursor()
 
     sql_youtube_site = "SELECT title FROM news_site WHERE url = %s"
-    sql_verif_media = "SELECT title FROM news_media WHERE title = %s"
+    sql_verif_media = "SELECT url FROM news_media WHERE url = %s"
     sql_media_url = "SELECT url FROM news_site WHERE type = 'Media' or type = 'Trading'"
     cur.execute(sql_media_url)
 
@@ -45,8 +45,9 @@ try:
         for i in items:
 
             title_media = i.title.text
+            url_media = i.link['href']
 
-            cur.execute(sql_verif_media, (title_media,))
+            cur.execute(sql_verif_media, (url_media,))
             result_sql_verif_media = cur.fetchone()
 
             if result_sql_verif_media is not None:
@@ -62,9 +63,6 @@ try:
             time_change = datetime.timedelta(hours=2)
             date_publi_media = date_publi_media + time_change
 
-            # description_media = i.find('media:description').text
-
-            url_media = i.link['href']
             image_media = i.find('media:thumbnail')['url']
 
             sql_insert_media = "INSERT INTO news_media (title, author, datepubli, url, category_environnement, thumbnail) VALUES(%s,%s,%s,%s,%s,%s)"

@@ -114,10 +114,6 @@
         font-size: 12px;
     }
 
-    .navBar .li-section-navbar-sociaux {
-        float: right;
-    }
-
     .navBar .li-section-navbar-sociaux a {
         padding: 15px 15px 15px 15px;
     }
@@ -131,6 +127,104 @@
 
 
     /* HOME */
+
+    .box-search-twitch {
+        width: 80%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-item-align: start;
+        align-self: flex-start;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
+
+
+    .twitchBox {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: flex-start;
+        -ms-flex-item-align: start;
+        align-self: flex-start;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
+
+    .twitchBox p {
+        margin: 12px 10px 0 5px;
+        color: rgb(219, 217, 217);
+    }
+
+    .twitchBox .twitchBox-img-twitch {
+        margin-top: 12px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .twitchBox-streamer {
+        width: 39px;
+        height: 39px;
+        margin-right: 3px;
+        vertical-align: middle;
+    }
+
+    .twitchBox-streamer img {
+        width: 35px;
+        height: 35px;
+        border-radius: 100%;
+        border: 2px solid green;
+    }
+
+    /* Tooltip text */
+    .twitchBox-streamer .tooltiptext {
+        visibility: hidden;
+        background: rgba(0, 0, 0, .9);
+        color: rgb(202, 28, 28);
+        font-size: 13px;
+        padding: 5px;
+        border-radius: 6px;
+        top: 7%;
+        right: 15%;
+        box-shadow: 0 0 2px rgba(0, 0, 0, .5);
+        -webkit-transform: scale(0) rotate(-18deg);
+        transform: scale(0) rotate(-18deg);
+        -webkit-transition: all .4s;
+        transition: all .4s;
+
+        /* Position the tooltip text - see examples below! */
+        position: absolute;
+        z-index: 2;
+    }
+
+    /* Show the tooltip text when you mouse over the tooltip container */
+    .twitchBox-streamer:hover .tooltiptext {
+        visibility: visible;
+        -webkit-transform: scale(1) rotate(0);
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+
+
+
+
+
+
+
+
     #main {
         border-radius: 10px;
         display: -webkit-box;
@@ -343,20 +437,6 @@
         width: 80px;
         margin-left: -9px;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /* Div Description créer lors du clic sur un article ou media */
     #div-description-create {
@@ -596,98 +676,6 @@
         font-size: 11px;
         padding-left: 10px;
     }
-
-
-
-    .sites-actus-newsletter {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: center;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        margin-left: 5%;
-        margin-right: 5%;
-    }
-
-
-    .sites-actus-newsletter-box-site {
-        width: 20%;
-        margin-bottom: 40px;
-        margin-right: 50px;
-        animation: fadein 1.5s;
-        -webkit-animation: fadein 1.5s;
-        -moz-animation: fadein 1.5s;
-        -ms-animation: fadein 1.5s;
-        -o-animation: fadein 1.5s;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: flex-start;
-        -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-    }
-
-    .sites-actus-newsletter-site-name {
-        background: -webkit-linear-gradient(175deg, rgb(14, 15, 19), rgb(46, 48, 59));
-        background: linear-gradient(-85deg, rgb(14, 15, 19), rgb(46, 48, 59));
-        border-radius: 10px 0 0 10px;
-        padding: 20px 0 0 0;
-        width: 70%;
-        max-height: 82px;
-        vertical-align: middle;
-    }
-
-    .sites-actus-newsletter-site-name p {
-        color: rgba(219, 217, 217, 0.877);
-        font-size: 20px;
-        text-align: center;
-        margin: 0 0 0 0;
-    }
-
-
-    .sites-actus-newsletter-abonner {
-        text-align: center;
-        width: 100%;
-        margin-top: 25px;
-        margin-bottom: 10px;
-    }
-
-    .sites-actus-newsletter-abonner a {
-        background: linear-gradient(-45deg, rgb(33, 35, 43), rgb(76, 80, 99));
-        color: rgb(219, 217, 217);
-        text-decoration: none;
-        padding: 8px 11px 8px 11px;
-        border-radius: 5px 5px 5px 5px;
-    }
-
-    .sites-actus-newsletter-abonner a:hover {
-        background: linear-gradient(-45deg, rgb(61, 65, 80), rgb(107, 111, 133));
-    }
-
-    .sites-actus-newsletter-img {
-        justify-content: center;
-    }
-
-    .sites-actus-newsletter-img img {
-        box-shadow: var(--box-shadow);
-        border-radius: 0 10px 10px 0;
-        width: 100px;
-    }
-
-
 
 
     /* Tooltip container */
@@ -984,6 +972,77 @@
     }
 
     /* Media */
+
+
+
+
+    /* Live */
+    .main-live {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        margin: 0 4% 0 4%;
+        padding-top: 2%;
+    }
+
+    .live-box-live {
+        background: var(--background-color);
+        box-shadow: var(--box-shadow);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        width: 13%;
+        margin: 0 20px 40px 20px;
+        border-radius: 15px;
+    }
+
+    .live-influ-img {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    .live-influ-img img {
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+        margin-top: 15px;
+    }
+
+    .live-influ-name {
+        width: 100%;
+        text-align: center;
+        margin: 20px 0 20px 0;
+    }
+
+
+    .live-influ-name a {
+        color: rgb(219, 217, 217);
+        font-size: 16px;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+    }
+
+    /* Live */
 
 
 
@@ -1314,6 +1373,7 @@
     #searchbox {
         margin-bottom: 20px;
         margin-left: 5%;
+        width: 15%;
     }
 
     #searchbox input {
@@ -1326,8 +1386,8 @@
         border-width: 0px;
         border-radius: 10px;
         font-size: 13px;
+        width: 100%;
         color: #383737;
-        width: 15%;
         display: inline-table;
         vertical-align: top;
     }
@@ -1658,6 +1718,17 @@
 
 
     /* HOME */
+
+    .box-search-twitch {
+        width: 80%;
+        margin-bottom: 30px;
+        justify-content: center;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+
+    }
+
+
     #main {
         border-radius: 10px;
         display: -webkit-box;
@@ -2045,7 +2116,11 @@
 
     /* SearchBar */
     #searchbox input[type="text"] {
-        width: 40%;
+        width: 60%;
+    }
+
+    #searchbox {
+        width: 100%;
     }
 
     /* SearchBar */
@@ -2099,13 +2174,6 @@
         padding-left: 5px;
     }
 
-    .sites-actus-newsletter-box-site {
-        width: 48%;
-        margin-bottom: 30px;
-        margin-right: 10px;
-    }
-
-
     /* Tooltip container */
     /* Show the tooltip text when you mouse over the tooltip container */
     .sites-actus-article-title:hover .tooltiptext {
@@ -2113,11 +2181,6 @@
         -webkit-transform: scale(1) rotate(0);
         transform: scale(1) rotate(0);
         opacity: 0;
-    }
-
-
-    .sites-actus-newsletter-site-name {
-        padding: 13px 0 0 0;
     }
 
     /* Sites-Actus */
@@ -2195,6 +2258,15 @@
         margin-top: 10px;
     }
 
+
+
+
+    /* Live */
+    .live-box-live {
+        width: 29%;
+    }
+
+    /* Live */
 
 
 

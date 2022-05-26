@@ -4,11 +4,24 @@
 
 {%block content%}
 
+<div class="box-search-twitch">
+    <form id="searchbox" action="{% url 'SearchPage' %}" method="get" accept-charset="utf-8">
+        <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search">
+        <button id="button-submit" style="display:none;" type="submit">Rechercher</button>
+    </form>
 
-<form id="searchbox" action="{% url 'SearchPage' %}" method="get" accept-charset="utf-8">
-    <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search">
-    <button id="button-submit" style="display:none;" type="submit">Rechercher</button>
-</form>
+    <div class="twitchBox">
+        <img class="twitchBox-img-twitch" src="https://static.twitchcdn.net/assets/favicon-32-e29e246c157142c94346.png" alt="">
+        <p>Twitch :</p>
+        {% for streamer in list_stream_online %}
+            <div class="twitchBox-streamer">
+                <span class="tooltiptext"><strong>{{ streamer.0 }}:</strong> {{ streamer.1 }}</span>
+                <a href="https://www.twitch.tv/{{ streamer.0 }}"><img class="" src="{{ streamer.2 }}" alt=""></a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
 
 <div id='main'>
 
@@ -103,7 +116,7 @@
         {% for tweet in Latest_tweet %}
             <div class="main-div-tweet">
                 <div class="main-tweet-author">
-                    <p>{{ tweet.author }}</p>
+                    <p>@{{ tweet.author }}</p>
                 </div>
                 <div class="main-tweet-title">
                     <p><a href="{{ tweet.url }}" class="link-media" style="text-decoration:none">{{ tweet.title }}</a></p>

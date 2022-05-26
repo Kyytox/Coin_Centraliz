@@ -1,0 +1,20 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="main-live">
+    {% for live in list_stream_online %}
+        <div class="live-box-live">
+            <div class="live-influ-img">
+                <a href="https://www.twitch.tv/{{ live.title }}"><img class="" src="{{ live.thumbnail }}" alt=""></a>
+            </div>
+            <div class="live-influ-name">
+                <a href="https://www.twitch.tv/{{ live.title }}">{{ live.title }}</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

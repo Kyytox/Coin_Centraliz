@@ -13,6 +13,7 @@ list_type = (
     ("Media", "Media"),
     ('Bitcoin', 'Bitcoin'),
     ("Trading", "Trading"),
+    ('Twitch', 'Twitch'),
     ("Tweet", "Tweet"),
 )
 
@@ -21,6 +22,9 @@ class Site(models.Model):
     title = models.fields.CharField(max_length=50)
     url = models.fields.CharField(max_length=100)
     url_site = models.fields.CharField(max_length=100, null=True)
+    description = models.fields.CharField(max_length=2000, null=True)
+    thumbnail = models.ImageField(
+        upload_to=None, blank=True, null=True, max_length=200)
     type = models.fields.CharField(max_length=20, choices=list_type)
 
     def __str__(self):
@@ -76,7 +80,8 @@ class Media(models.Model):
     datepubli = models.fields.DateTimeField(auto_now=False)
     url = models.fields.URLField(null=True, blank=True)
     category_environnement = models.fields.BooleanField()
-    thumbnail = models.ImageField(upload_to='media', blank=True, null=True)
+    thumbnail = models.ImageField(
+        upload_to='media', blank=True, null=True, max_length=200)
     interval_publi = models.fields.CharField(max_length=5, null=True)
 
     class Meta:
