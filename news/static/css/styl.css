@@ -81,6 +81,15 @@
         font-weight: bold;
     }
 
+    .en-tete-title h4 {
+        display: block;
+        color: white;
+        font-size: 12px;
+        margin: 0 0 0 5px;
+        padding: 0 0 0 15px;
+        font-weight: 100;
+    }
+
     .navBar {
         width: 100%;
     }
@@ -241,9 +250,20 @@
         -webkit-box-direction: normal;
         -ms-flex-direction: row;
         flex-direction: row;
-        margin-left: 2%;
-        margin-right: 2%;
+        margin-left: 1%;
+        margin-right: 1%;
     }
+
+    #main section {
+        height: 90vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: space-evenly;
+        align-items: center;
+    }
+
 
 
     #derniers-articles,
@@ -264,7 +284,6 @@
         -ms-flex-direction: column;
         flex-direction: column;
         overflow-y: scroll;
-        width: 49.5%;
         animation: fadein 2s;
         -webkit-animation: fadein 2s;
         -moz-animation: fadein 2s;
@@ -273,18 +292,89 @@
         border-radius: 10px;
     }
 
-    #derniers-articles {
-        max-height: 590px;
-        margin-top: -210px;
+    .section-articles-title,
+    .section-media-title,
+    .section-tweet-title {
+        height: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        color: white;
+        font-size: 35px;
     }
 
-    #derniers-media,
+    .section-articles-title {
+        justify-content: center;
+    }
+
+    .section-media-title,
+    .section-tweet-title {
+        height: 100%;
+        width: 35%
+    }
+
+    .section-articles-title h3 {
+        font-size: 35px;
+    }
+
+    .section-media-title h3,
+    .section-tweet-title h3 {
+        font-size: 35px;
+        width: 100%;
+    }
+
+    .section-tweet-title p.section-tweet-explications {
+        font-size: 20px;
+    }
+
+    .section-media-box {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .section-media-box h4 {
+        width: 100%;
+        font-size: 20px;
+    }
+
+    .section-media-category {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .section-media-category a {
+        font-size: 14px;
+        border: 1px solid white;
+        color: white;
+        padding: 7px;
+        margin-right: 15px;
+        margin-top: 10px;
+        border-radius: 24px;
+        -webkit-border-radius: 24px;
+        -moz-border-radius: 24px;
+        -ms-border-radius: 24px;
+        -o-border-radius: 24px;
+        text-decoration: none;
+    }
+
+
+
+    #derniers-articles {
+        max-height: 750px;
+        width: 55%;
+    }
+
+
     #derniers-tweet {
-        height: 400px;
+        height: 750px;
+        width: 55%;
     }
 
     #derniers-media {
-        margin-bottom: 15px;
+        max-height: 750px;
+        width: 55%;
     }
 
 
@@ -430,6 +520,7 @@
         font-size: 11px;
         background: transparent;
         border: none;
+        height: 50%;
     }
 
 
@@ -440,7 +531,8 @@
 
     /* Div Description créer lors du clic sur un article ou media */
     #div-description-create {
-        width: 45.65%;
+        width: 37%;
+        height: 300px;
     }
 
 
@@ -449,7 +541,7 @@
         box-shadow: var(--box-shadow);
         border-radius: 10px;
         overflow-y: scroll;
-        max-height: 190px;
+        max-height: 300px;
         margin: 0 3% 0 3%;
         padding-left: 8px;
         padding-top: 5px;
@@ -1729,6 +1821,7 @@
     }
 
 
+
     #main {
         border-radius: 10px;
         display: -webkit-box;
@@ -1745,6 +1838,32 @@
         flex-direction: row;
         margin-left: 2%;
         margin-right: 2%;
+    }
+
+    #main section {
+        height: 100vh;
+        flex-wrap: nowrap;
+    }
+
+    .section-articles-title,
+    .section-media-title,
+    .section-tweet-title {
+        height: 18%;
+    }
+
+    .section-media-title,
+    .section-tweet-title {
+        height: 11%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .section-tweet-title p.section-tweet-explications {
+        visibility: hidden;
+    }
+
+    .section-media-box {
+        visibility: hidden;
     }
 
 
@@ -1787,15 +1906,13 @@
         -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
         order: 3;
-        height: 500px;
+        height: 750px;
     }
 
     #derniers-tweet {
         -webkit-box-ordinal-group: 5;
         -ms-flex-order: 4;
         order: 4;
-        /* margin-top: 15px; */
-        /* margin-bottom: 20px; */
     }
 
 
@@ -2029,6 +2146,8 @@
         order: 1;
         width: 80%;
         margin-bottom: 15px;
+        visibility: hidden;
+        height: 0px;
     }
 
 

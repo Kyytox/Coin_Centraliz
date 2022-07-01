@@ -95,6 +95,9 @@ def index(request):
     for stream in list_infos_streams:
         user_name = stream['user_name']
         title = stream['title']
+
+        if 'ㅿㅁㅇ' in user_name:
+            continue
         req_user = twitch.get_users(logins=[user_name])
         list_infos_user = req_user['data']
         for user in list_infos_user:
@@ -102,8 +105,18 @@ def index(request):
 
             list_stream_online.append([user_name, title, thumbnail_url])
 
+    list_site_media_media = Site.objects.filter(type='Media')
+    list_site_media_bitcoin = Site.objects.filter(type='Bitcoin')
+    list_site_media_trading = Site.objects.filter(type='Trading')
+
     # we retrieve the first x Article-Media-Tweet with new interval date publi
-    return render(request, 'news/index.html', {'Latest_articles': Article.objects.all()[:150], 'Latest_media': Media.objects.all()[:100], 'Latest_tweet': Tweet.objects.all()[:100], 'list_stream_online': list_stream_online})
+    return render(request, 'news/index.html', {'Latest_articles': Article.objects.all()[:150],
+                                               'Latest_media': Media.objects.all()[:100],
+                                               'Latest_tweet': Tweet.objects.all()[:100],
+                                               'list_stream_online': list_stream_online,
+                                               'list_site_media_media': list_site_media_media,
+                                               'list_site_media_bitcoin': list_site_media_bitcoin,
+                                               'list_site_media_trading': list_site_media_trading, })
 
 
 def sites_actus(request):
@@ -224,7 +237,8 @@ def live(request):
 
     # Twitch
     # collect all streamer in table site with type = Twitch
-    list_stream_online = Site.objects.filter(type='Twitch')
+    list_stream_online = list(Site.objects.filter(type='Twitch'))
+    random.shuffle(list_stream_online)
 
     return render(request, 'news/live.html', {'list_stream_online': list_stream_online})
 
@@ -266,9 +280,11 @@ def explication(request):
     list_site_media_media = Site.objects.filter(type='Media')
     list_site_media_bitcoin = Site.objects.filter(type='Bitcoin')
     list_site_media_trading = Site.objects.filter(type='Trading')
+    list_site_media_twitch = Site.objects.filter(type='Twitch')
 
     return render(request, 'news/explication.html', {'list_site_actus_article': list_site_actus_article,
                                                      'list_site_actus_newsletter': list_site_actus_newsletter,
                                                      'list_site_media_media': list_site_media_media,
                                                      'list_site_media_bitcoin': list_site_media_bitcoin,
-                                                     'list_site_media_trading': list_site_media_trading, })
+                                                     'list_site_media_trading': list_site_media_trading,
+                                                     'list_site_media_twitch': list_site_media_twitch})

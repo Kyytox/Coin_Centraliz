@@ -25,108 +25,151 @@
 
 <div id='main'>
 
-    <div id="div-description-create">
-        <div id="div-description">
-            <div id="div-description-title">
-                <a title="title" href="{{ Latest_articles.0.url }}">{{ Latest_articles.0.title }}</a>
-            </div>
-            <div id="div-description-date-publi">
-                {{ Latest_articles.0.datepubli }}
-            </div>
-            <div id="div-description-url">
-                <a title="url" href="{{ Latest_articles.0.url }}">{{ Latest_articles.0.url }}</a>
-            </div><div id="div-description-site">
-                {{ Latest_articles.0.site }}
-            </div>
-            <div id="div-description-author">
-                Auteur : {{ Latest_articles.0.author }}
-            </div>
-            <div id="div-description-categories">
-                {{ Latest_articles.0.category_1 }} {{ Latest_articles.0.category_2 }} {{ Latest_articles.0.category_3 }} {{ Latest_articles.0.category_4 }} 
-            </div>
-            <div id="div-description-description"> 
-                {{ Latest_articles.0.description }}
+    <section>
+
+        <div class="section-articles-title">
+            <h3>Articles</h3> 
+        </div>
+
+        <div id="div-description-create">
+            <div id="div-description">
+                <div id="div-description-title">
+                    <a title="title" href="{{ Latest_articles.0.url }}">{{ Latest_articles.0.title }}</a>
+                </div>
+                <div id="div-description-date-publi">
+                    {{ Latest_articles.0.datepubli }}
+                </div>
+                <div id="div-description-url">
+                    <a title="url" href="{{ Latest_articles.0.url }}">{{ Latest_articles.0.url }}</a>
+                </div><div id="div-description-site">
+                    {{ Latest_articles.0.site }}
+                </div>
+                <div id="div-description-author">
+                    Auteur : {{ Latest_articles.0.author }}
+                </div>
+                <div id="div-description-categories">
+                    {{ Latest_articles.0.category_1 }} {{ Latest_articles.0.category_2 }} {{ Latest_articles.0.category_3 }} {{ Latest_articles.0.category_4 }} 
+                </div>
+                <div id="div-description-description"> 
+                    {{ Latest_articles.0.description }}
+                </div>
             </div>
         </div>
-    </div>
+        
+        <div id='derniers-articles'>
+            {% for article in Latest_articles %}
+                <div class="main-div-article">
+                    <div class="main-article-site" onclick="createDescriptionArticle('{{ article.author }}','{{ article.site }}','{{ article.category_1 }}','{{ article.category_2 }}','{{ article.category_3 }}','{{ article.category_4 }}','{{ article.datepubli }}','{{ article.url }}')">
+                        <p>{{ article.site }}</p>
+                    </div>
+                    <div class="main-article-title" onclick="createDescriptionArticle('{{ article.author }}','{{ article.site }}','{{ article.category_1 }}','{{ article.category_2 }}','{{ article.category_3 }}','{{ article.category_4 }}','{{ article.datepubli }}','{{ article.url }}')">
+                        <p id="p-title-article-media-tweet-{{ article.url }}"><a href="{{ article.url }}" class="link-article">{{ article.title }}</a></p>
+                    </div>
+                    <div class="main-div-article-category">
+                        <div class="main-article-category-1">
+                            <form action="{% url 'searchCategory' %}" method="GET">
+                                <input type="hidden" name="q" value="{{ article.category_1 }}">
+                                <button class="btn-category" type="submit">{{ article.category_1 }}</button>
+                            </form>
+                        </div>
+                        <div class="main-article-category-2">
+                            <form action="{% url 'searchCategory' %}" method="GET">
+                                <input type="hidden" name="q" value="{{ article.category_2 }}">
+                                <button class="btn-category" type="submit">{{ article.category_2 }}</button>
+                            </form>
+                        </div>
+                        <div class="main-article-category-3">
+                            <form action="{% url 'searchCategory' %}" method="GET">
+                                <input type="hidden" name="q" value="{{ article.category_3 }}">
+                                <button class="btn-category" type="submit">{{ article.category_3 }}</button>
+                            </form>
+                        </div>
+                        <div class="main-article-category-4">
+                            <form action="{% url 'searchCategory' %}" method="GET">
+                                <input type="hidden" name="q" value="{{ article.category_4 }}">
+                                <button class="btn-category" type="submit">{{ article.category_4 }}</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="main-article-interval-publi" onclick="createDescriptionArticle('{{ article.author }}','{{ article.site }}','{{ article.category_1 }}','{{ article.category_2 }}','{{ article.category_3 }}','{{ article.category_4 }}','{{ article.datepubli }}','{{ article.url }}')">
+                        <p>{{ article.interval_publi }}</p>
+                    </div>
+                    <p style="display:none;" id="article-{{ article.title }}"> {{ article.description }} </p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
 
-    <div id='derniers-media'> 
-        {% for media in Latest_media %}
-            <div class="main-div-media">
-                <div class="main-div-media-img">
-                    <img class="main-media-img" src="{{ media.thumbnail }}" alt="{{ media.title }}">
+    <section>
+        <div id='derniers-media'> 
+            {% for media in Latest_media %}
+                <div class="main-div-media">
+                    <div class="main-div-media-img">
+                        <img class="main-media-img" src="{{ media.thumbnail }}" alt="{{ media.title }}">
+                    </div>
+                    <div class="main-media-author">
+                        <p>{{ media.author }}</p>
+                    </div>
+                    <div class="main-media-title">
+                        <p><a href="{{ media.url }}" class="link-media" style="text-decoration:none">{{ media.title }}</a></p>
+                    </div>
+                    <div class="main-media_interval_publi">
+                        <p>{{ media.interval_publi }}</p>
+                    </div>
                 </div>
-                <div class="main-media-author">
-                    <p>{{ media.author }}</p>
+            {% endfor %}
+        </div>
+        <div class="section-media-title">
+            <h3>Vidéos</h3>  
+            <div class="section-media-box">
+                <div class="section-media-category">
+                    <h4>Bitcoin</h4>
+                    {% for bitcoin in list_site_media_bitcoin %}
+                        <a href={{ bitcoin.url_site }}>{{ bitcoin.title }}</a>
+                    {% endfor %}
                 </div>
-                <div class="main-media-title">
-                    <p><a href="{{ media.url }}" class="link-media" style="text-decoration:none">{{ media.title }}</a></p>
+                <div class="section-media-category">
+                    <h4>Secteurs Crypto</h4>
+                    {% for crypto in list_site_media_media %}
+                        <a href={{ crypto.url_site }}>{{ crypto.title }}</a>
+                    {% endfor %}
                 </div>
-                <div class="main-media_interval_publi">
-                    <p>{{ media.interval_publi }}</p>
+                <div class="section-media-category">
+                    <h4>Trading</h4>
+                    {% for trading in list_site_media_trading %}
+                        <a href={{ trading.url_site }}>{{ trading.title }}</a>
+                    {% endfor %}
                 </div>
             </div>
-        {% endfor %}
-    </div>
+        </div>
+    </section>
 
-    <div id='derniers-articles'>
-        {% for article in Latest_articles %}
-            <div class="main-div-article">
-                <div class="main-article-site" onclick="createDescriptionArticle('{{ article.author }}','{{ article.site }}','{{ article.category_1 }}','{{ article.category_2 }}','{{ article.category_3 }}','{{ article.category_4 }}','{{ article.datepubli }}','{{ article.url }}')">
-                    <p>{{ article.site }}</p>
-                </div>
-                <div class="main-article-title" onclick="createDescriptionArticle('{{ article.author }}','{{ article.site }}','{{ article.category_1 }}','{{ article.category_2 }}','{{ article.category_3 }}','{{ article.category_4 }}','{{ article.datepubli }}','{{ article.url }}')">
-                    <p id="p-title-article-media-tweet-{{ article.url }}"><a href="{{ article.url }}" class="link-article">{{ article.title }}</a></p>
-                </div>
-                <div class="main-div-article-category">
-                    <div class="main-article-category-1">
-                        <form action="{% url 'searchCategory' %}" method="GET">
-                            <input type="hidden" name="q" value="{{ article.category_1 }}">
-                            <button class="btn-category" type="submit">{{ article.category_1 }}</button>
-                        </form>
-                    </div>
-                    <div class="main-article-category-2">
-                        <form action="{% url 'searchCategory' %}" method="GET">
-                            <input type="hidden" name="q" value="{{ article.category_2 }}">
-                            <button class="btn-category" type="submit">{{ article.category_2 }}</button>
-                        </form>
-                    </div>
-                    <div class="main-article-category-3">
-                        <form action="{% url 'searchCategory' %}" method="GET">
-                            <input type="hidden" name="q" value="{{ article.category_3 }}">
-                            <button class="btn-category" type="submit">{{ article.category_3 }}</button>
-                        </form>
-                    </div>
-                    <div class="main-article-category-4">
-                        <form action="{% url 'searchCategory' %}" method="GET">
-                            <input type="hidden" name="q" value="{{ article.category_4 }}">
-                            <button class="btn-category" type="submit">{{ article.category_4 }}</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="main-article-interval-publi" onclick="createDescriptionArticle('{{ article.author }}','{{ article.site }}','{{ article.category_1 }}','{{ article.category_2 }}','{{ article.category_3 }}','{{ article.category_4 }}','{{ article.datepubli }}','{{ article.url }}')">
-                    <p>{{ article.interval_publi }}</p>
-                </div>
-                <p style="display:none;" id="article-{{ article.title }}"> {{ article.description }} </p>
-            </div>
-        {% endfor %}
-    </div>
 
-    <div id='derniers-tweet'>
-        {% for tweet in Latest_tweet %}
-            <div class="main-div-tweet">
-                <div class="main-tweet-author">
-                    <p>@{{ tweet.author }}</p>
+    <section>
+        <div class="section-tweet-title">
+            <h3>Tweets / Threads</h3> 
+            <p class="section-tweet-explications">Un bot Twitter a été créer, <a href="https://twitter.com/CoinCentraliz" style="color: blue; font-size: 18px;">@CoinCentraliz</a>, principalement pour récupérer des THREADS et les partager. 
+                <br><br><br>Ce dernier va retweeter lorsqu'on le mentionnee et ensuite ce tweet sera ajouté en page d'accueil du site
+                <br><br><br>Donc si vous voulez afficher / partager un tweet (THREAD) hésitez pas a mentionner le BOT
+            </p>
+        </div>
+
+        <div id='derniers-tweet'>
+            {% for tweet in Latest_tweet %}
+                <div class="main-div-tweet">
+                    <div class="main-tweet-author">
+                        <p>@{{ tweet.author }}</p>
+                    </div>
+                    <div class="main-tweet-title">
+                        <p><a href="{{ tweet.url }}" class="link-media" style="text-decoration:none">{{ tweet.title }}</a></p>
+                    </div>
+                    <div class="main-tweet-interval-publi">
+                        <p>{{ tweet.interval_publi }}</p>
+                    </div>
                 </div>
-                <div class="main-tweet-title">
-                    <p><a href="{{ tweet.url }}" class="link-media" style="text-decoration:none">{{ tweet.title }}</a></p>
-                </div>
-                <div class="main-tweet-interval-publi">
-                    <p>{{ tweet.interval_publi }}</p>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
+    </section>
 </div>
 
 
