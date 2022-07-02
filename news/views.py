@@ -88,8 +88,8 @@ def index(request):
     # Twitch
     # connect to twitch and collect all fr streamer online in category Crypto
     list_stream_online = []
-    twitch = Twitch('1paxqmgze600do5zd5hbm9yv3rxfvs',
-                    '72ybpbsy6xffrtvb16t4rc16xrkrnl')
+    twitch = Twitch('xxxxxxxx',
+                    'xxxxxxxxx')
     req = twitch.get_streams(game_id=['499634'], language=['fr'])
     list_infos_streams = req['data']
     for stream in list_infos_streams:
