@@ -13,7 +13,7 @@ print("Lancement script TWITCH")
 try:
     conn = psycopg2.connect(
         user="postgres",
-        password='Caillault.012379',
+        password='x.x',
         host="localhost",
         port="5432",
         database="coincentraliz"
@@ -24,7 +24,7 @@ try:
     # Twitch
     # connect to twitch and collect all fr streamer online in category Crypto
     twitch = Twitch(
-        '1paxqmgze600do5zd5hbm9yv3rxfvs', '72ybpbsy6xffrtvb16t4rc16xrkrnl')
+        'xxxx', 'xxxxxx')
     req = twitch.get_streams(game_id=['499634'], language=['fr'])
     # print(SoupStrainer.search_tag(markupName=user_name, markupAttrs={}))
     list_steamers = req['data']
