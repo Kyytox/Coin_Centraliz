@@ -40,7 +40,7 @@ list_category = [myList_BTC, myList_ETH, myList_Altcoins, myList_DEFI, myList_NF
 try:
     conn = psycopg2.connect(
         user="postgres",
-        password='Caillault.012379',
+        password='x.x',
         host="localhost",
         port="5432",
         database="coincentraliz"
