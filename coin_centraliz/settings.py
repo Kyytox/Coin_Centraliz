@@ -28,8 +28,6 @@ DEBUG = True
 
 
 ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ['113-30-188-83.cloud-xip.io']
-#ALLOWED_HOSTS = ['5-180-181-86.cloud-xip.io']
 
 # Application definition
 
@@ -93,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'coincentraliz',
         'USER': 'postgres',
-        'PASSWORD': 'Caillault.012379',
+        'PASSWORD': 'x.x',
         'HOST': 'localhost',
         'PORT': '5432',
     }
