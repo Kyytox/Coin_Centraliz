@@ -30,7 +30,7 @@ list_media_envi_ajout = [
 try:
     conn = psycopg2.connect(
         user="postgres",
-        password='Caillault.012379',
+        password='x.x',
         host="localhost",
         port="5432",
         database="coincentraliz"
