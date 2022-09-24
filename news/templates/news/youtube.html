@@ -32,26 +32,8 @@
     </div>
 
     <div class="main-data-yt-box" id="main-data">
-        <div class="disposition">
-            <i id="dispo_list" onclick="dispo_list()" class="fa-solid fa-list"></i>
-            <i id="dispo_box" onclick="dispo_box()" class="fa-solid fa-table-cells-large"></i>
-        </div>
         {% include "news/box_youtube.html"%}
     </div>
 </div>
-
-
-<script>
-
-    function dispo_box() {
-        document.getElementById("main-data").classList.replace("main-data-yt", "main-data-yt-box");
-    }
-
-    function dispo_list() {
-        document.getElementById("main-data").classList.replace("main-data-yt-box", "main-data-yt");
-    }
-
-</script>
-
 
 {% endblock %}
