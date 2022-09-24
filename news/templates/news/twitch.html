@@ -1,0 +1,40 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div id="main">
+    <div class="main-data-twitch">
+        {% if list_stream_online %}
+            {% for streamer in list_stream_online %}
+                <div class="main-data-twitch-element">
+                    <div class="data-twitch-viewer-count">
+                        <p><i class="fa-solid fa-user"></i>{{ streamer.2 }}</p>
+                    </div>
+                    <div class="data-twitch-img">
+                        <a href="https://www.twitch.tv/{{ streamer.0 }}" class="link-streamer" target="_blank" rel="noopener noreferrer">
+                            <img class="twitch-img" src="{{ streamer.3 }}" alt="{{ streamer.1 }}">
+                        </a>
+                    </div>
+                    <div class="data-twitch-title">
+                        <a href="https://www.twitch.tv/{{ streamer.0 }}" class="link-streamer" target="_blank" rel="noopener noreferrer">
+                            <p>
+                                <img class="" src="{{ streamer.4 }}" alt="{{ streamer.0 }}">
+                                {{ streamer.0 }}
+                            </p>
+                            <h4>{{ streamer.1 }}</h4>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="no-streamer">
+                <p>
+                    Il n'y a aucun Streamer Twitch de la catégorie Crypto en ligne  
+                </p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

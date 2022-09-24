@@ -19,13 +19,13 @@ try:
 
     sql_youtube_site = "SELECT title FROM news_site WHERE url = %s"
     sql_verif_media = "SELECT url FROM news_media WHERE url = %s"
-    sql_media_url = "SELECT url FROM news_site WHERE type = 'Media' or type = 'Trading'"
+    sql_media_url = "SELECT url FROM news_site WHERE type = 'Media' or type = 'Trading' or type = 'Bitcoin'"
     cur.execute(sql_media_url)
 
     for url in cur.fetchall():
         print('x: ', url[0])
         if url[0] == 'https://anchor.fm/s/8f4024c/podcast/rss':
-            break
+            continue
 
         xml_data = requests.get(url[0]).content
         soup = BeautifulSoup(xml_data, "html.parser")

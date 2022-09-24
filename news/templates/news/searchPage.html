@@ -1,56 +1,63 @@
 {% extends 'news/base.html' %}
 
-
 {% block content %}
 
-
-<div class="body-search">
-    {% if list_articles or list_media or list_tweet%}
-        {% if list_articles %}
-            <div class="search-box-site">
-                <div class="search-influ-name">
-                    <p>News</p>
-                </div>
-                <div class="search-list">
-                    {% for search in list_articles %}
-                        {% include "news/block_search.html" %}
-                    {% endfor %}
-                </div>
-            </div>
+<div id="main">
+    <div class="main-search-category">
+        {% if Latest_articles %}
+            <form action="{% url 'SearchPage' %}" method="GET">
+                <input type="hidden" name="c" value="article">
+                <input type="hidden" name="q" value={{ search_term }}>
+                <button type="submit" {% if "article" in request.get_full_path %} id="active" {% endif %}>Articles</button>
+            </form>
         {% endif %}
-
-        {% if list_media %}
-            <div class="search-box-site">
-                <div class="search-influ-name">
-                    <p>Media</p>
-                </div>
-                <div class="search-list">
-                    {% for search in list_media %}
-                        {% include "news/block_search.html" %}
-                    {% endfor %}
-                </div>
-            </div>
+        {% if Latest_media %}
+            <form action="{% url 'SearchPage' %}" method="GET">
+                <input type="hidden" name="c" value="youtube">
+                <input type="hidden" name="q" value={{ search_term }}>
+                <button type="submit" {% if "youtube" in request.get_full_path %} id="active" {% endif %}>Youtube</button>
+            </form>
         {% endif %}
-
-        {% if list_tweet %}
-            <div class="search-box-site">
-                <div class="search-influ-name">
-                    <p>Tweet</p>
-                </div>
-                <div class="search-list">
-                    {% for search in list_tweet %}
-                        {% include "news/block_search.html" %}
-                    {% endfor %}
-                </div>
-            </div>
+        {% if list_tweets %}
+            <form action="{% url 'SearchPage' %}" method="GET">
+                <input type="hidden" name="c" value="tweets">
+                <input type="hidden" name="q" value={{ search_term }}>
+                <button type="submit" {% if "tweets" in request.get_full_path %} id="active" {% endif %}>Tweets</button>
+            </form>
         {% endif %}
-
+    </div>
+    
+    {% if "article" in request.get_full_path %}
+        <div class="main-data-box">
+            {% include "news/box_article.html"%}
+        </div>
+    {% elif "youtube" in request.get_full_path %}
+        <div class="main-data-yt-box">
+            {% include "news/box_youtube.html"%}
+        </div>
+    {% elif "tweets" in request.get_full_path %}
+        <div class="main-data-tweet">
+            {% include "news/box_tweets.html"%}
+        </div>
     {% else %}
+        {% if Latest_articles %}
+            <div class="main-data-box">
+                {% include "news/box_article.html"%}
+            </div>
+        {% elif Latest_media %}
+            <div class="main-data-yt-box">
+                {% include "news/box_youtube.html"%}
+            </div>        
+        {% elif list_tweets %}
+            <div class="main-data-tweet">
+                {% include "news/box_tweets.html"%}
+            </div>
+        {% else %}
             <div class="search-box-no-result">
                 <p>Pas de Résultats</p>
             </div>
+        {% endif %}
     {% endif %}
 </div>
-
 
 {% endblock %}

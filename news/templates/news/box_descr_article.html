@@ -1,0 +1,24 @@
+<div id="div-description-create">
+    <div id="div-description">
+        <div id="div-description-date-publi">
+            {{ Latest_articles.0.datepubli }}
+        </div>
+        <div id="div-description-title">
+            <a title="title" href="{{ Latest_articles.0.url }}" target="_blank" rel="noopener noreferrer">{{ Latest_articles.0.title }}</a>
+        </div>
+        <div id="div-description-url">
+            <a title="url" href="{{ Latest_articles.0.url }}" target="_blank" rel="noopener noreferrer">{{ Latest_articles.0.url }}</a>
+        </div><div id="div-description-site">
+            {{ Latest_articles.0.site }}
+        </div>
+        <div id="div-description-author">
+            Auteur : {{ Latest_articles.0.author }}
+        </div>
+        <div id="div-description-categories">
+            {{ Latest_articles.0.category_1 }} {{ Latest_articles.0.category_2 }} {{ Latest_articles.0.category_3 }} {{ Latest_articles.0.category_4 }} 
+        </div>
+        <div id="div-description-description"> 
+            {{ Latest_articles.0.description }}
+        </div>
+    </div>
+</div> 

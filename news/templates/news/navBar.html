@@ -1,37 +1,40 @@
 {% load static %}
 
 <div class="navBar">
-    <li class=li-section-navbar {% if request.resolver_match.url_name == 'index' %} id="active" {% endif %}>
-        <a href="{% url 'index' %}">Dernières Actus</a>
+    <h1>
+        <a href="{% url 'index' %}">Coin Centraliz</a>
+    </h1>
+
+    <li class="navbar-li-search">
+        <form id="searchbox" action="{% url 'SearchPage' %}" method="get" accept-charset="utf-8">
+            <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search">
+            <button id="button-submit" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
     </li>
-    <li class=li-section-navbar {% if request.resolver_match.url_name == 'sites_actus' %} id="active" {% endif %}>
-        <a href="{% url 'sites_actus' %}">Sites Actus</a>
+    <li {% if request.resolver_match.url_name == 'index' %} id="active" {% endif %}>
+        <a href="{% url 'index' %}"><i class="fa-solid fa-newspaper"></i></a>
     </li>
-    <li class=li-section-navbar {% if request.resolver_match.url_name == 'media' %} id="active" {% endif %}>
-        <a href="{% url 'media' %}">Media</a>
+    <li {% if request.resolver_match.url_name == 'media' %} id="active" {% endif %}>
+        <a href="{% url 'media' %}"><i class="fa-brands fa-youtube"></i></a>
     </li>
-    <li class=li-section-navbar {% if request.resolver_match.url_name == 'live' %} id="active" {% endif %}>
-        <a href="{% url 'live' %}">Live</a>
+    <li {% if request.resolver_match.url_name == 'live' %} id="active" {% endif %}>
+        <a href="{% url 'live' %}" alt="Twitch"><i class="fa-brands fa-twitch"></i></a>
     </li>
-    <li class=li-section-navbar>
-        <a style="color:green" href="{% url 'environnement' %}">ENVIRONNEMENT</a>
+    <li {% if request.resolver_match.url_name == 'tweets' %} id="active" {% endif %} alt="Tweets">
+        <a href="{% url 'tweets' %}"><i class="fa-brands fa-twitter"></i></a>
+    </li>
+    <li>
+        <a href="{% url 'environnement' %}"><i class="fa-solid fa-tree"></i></a>
+    </li>
+    <li {% if request.resolver_match.url_name == 'newsletter' %} id="active" {% endif %}>
+        <a href="{% url 'newsletter' %}"><i class="fa-solid fa-envelope"></i></a>
     </li>
     <li class="li-section-navbar-explication" {% if request.resolver_match.url_name == 'explication' %} id="active" {% endif %}>
-        <a href="{% url 'explication' %}">Qu'est ce que Coin Centraliz ?</a>
+        <a href="{% url 'explication' %}"><i class="fa-sharp fa-solid fa-circle-question"></i></a>
     </li>
-    <li class="li-section-navbar-sociaux">
-        <span>
-            <a href="https://twitter.com/CoinCentraliz">
-                <img src="{% static "img/twitter-sign.png"%}" alt="">
-            </a>
-        </span>
-    </li>
-    <li class="li-section-navbar-sociaux">
-        <span>
-            <a href="https://github.com/Kyytox/Coin_Centraliz">
-                <img src="{% static "img/github.png"%}" alt="">
-            </a>
-        </span>
+    <li class="li-section-navbar-social">
+        <a href="https://twitter.com/CoinCentraliz"><i class="fa-solid fa-robot"></i></a>
+        <a href="https://github.com/Kyytox/Coin_Centraliz"><i class="fa-brands fa-github"></i></a>
     </li>
 </div>
 

@@ -1,0 +1,13 @@
+{% for tweet in list_tweets %}
+    <div class="main-data-tweet-element">
+        <a href="{{ tweet.url }}" class="link-tweet" style="text-decoration:none" target="_blank" rel="noopener noreferrer">
+            <div class="data-tweet-author">
+                <p>{{ tweet.author }}</p>
+                <p>{{ tweet.interval_publi }}</p>
+            </div>
+            <div class="data-tweet-title">
+                <p>{{ tweet.title }}</p>
+            </div>
+        </a>
+    </div>
+{% endfor %}

@@ -28,7 +28,7 @@ class Site(models.Model):
     type = models.fields.CharField(max_length=20, choices=list_type)
 
     def __str__(self):
-        return f'{self.title} -- {self.url}'
+        return f'{self.title} -- {self.url} -- {self.type}'
 
 
 # model Article

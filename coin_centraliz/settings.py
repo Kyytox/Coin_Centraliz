@@ -28,8 +28,6 @@ DEBUG = True
 
 
 ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ['113-30-188-83.cloud-xip.io']
-#ALLOWED_HOSTS = ['5-180-181-86.cloud-xip.io']
 
 # Application definition
 

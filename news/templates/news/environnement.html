@@ -4,20 +4,10 @@
 
 {% block content %}
 
-<div class="body-environnement">
-
-    <div class="environnement-présentation">
-        <p>Si tu dis ou si tu penses encore que Bitcoin est un problème pour l'environnement :</p>
-        <p>Alors s'il te plaît regarde le contenu de cette putain de page</p>
-    </div>
-
-    <div class="environnement-box-site">
-        <div class="environnement-list">
-            {% for media in list_media_environnement %}
-                {% include "news/block_environnement.html"%}
-            {% endfor %}
-        </div>
+<div id="main">
+    <div class="main-data-yt-box" id="main-data">
+        {% include "news/box_youtube.html"%}
     </div>
 </div>
 
-{% endblock %}
+{% endblock %}.environnement-list 

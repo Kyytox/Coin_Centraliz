@@ -63,11 +63,11 @@ try:
 
                 cur.execute(sql_insert_tweet, val_at_insert)
                 # commit the changes to the database
-                conn.commit()
+    conn.commit()
 
-                # fermeture de la connexion à la base de données
-                cur.close()
-                conn.close()
-                print("La connexion PostgreSQL est fermée")
+    # fermeture de la connexion à la base de données
+    cur.close()
+    conn.close()
+    print("La connexion PostgreSQL est fermée")
 except (Exception, psycopg2.Error) as error:
     print("Erreur lors de la connexion à PostgreSQL", error)

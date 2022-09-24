@@ -4,187 +4,64 @@
 
 {%block content%}
 
-<div class="box-search-twitch">
-    <form id="searchbox" action="{% url 'SearchPage' %}" method="get" accept-charset="utf-8">
-        <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search">
-        <button id="button-submit" style="display:none;" type="submit">Rechercher</button>
-    </form>
+<div id="main">
+    <div class="main-creator">
+        <form action="{% url 'index' %}">
+            <button type="submit" {% if site.title in request.get_full_path %} id="active" {% endif %}>Dernieres Actus</button>
+        </form>
+        {% for site in list_site_articles %}
+        <form action="{% url 'index' %}" method="GET">
+            <input type="hidden" name="r" value="{{ site.title }}">
+            <button type="submit" {% if site.title in request.get_full_path %} id="active" {% endif %}>{{ site.title }} </button>
+        </form>
+    {% endfor %}
+    </div>
 
-    <div class="twitchBox">
-        <img class="twitchBox-img-twitch" src="https://static.twitchcdn.net/assets/favicon-32-e29e246c157142c94346.png" alt="">
-        <p>Twitch :</p>
-        {% for streamer in list_stream_online %}
-            <div class="twitchBox-streamer">
-                <span class="tooltiptext"><strong>{{ streamer.0 }}:</strong> {{ streamer.1 }}</span>
-                <a href="https://www.twitch.tv/{{ streamer.0 }}"><img class="" src="{{ streamer.2 }}" alt=""></a>
-            </div>
-        {% endfor %}
+    <div class="main-data-box" id="main-data">
+        <div class="disposition">
+            <i id="dispo_list" onclick="dispo_list()" class="fa-solid fa-list"></i>
+            <i id="dispo_box" onclick="dispo_box()" class="fa-solid fa-table-cells-large"></i>
+        </div>
+        {% include "news/box_article.html"%}
+    </div>
+
+    <div class="main-div-descr" id="main-div-descr" style="display:none" >
+        {% include "news/box_descr_article.html"%}
     </div>
 </div>
 
-
-<div id='main'>
-
-    <section>
-
-        <div class="section-articles-title">
-            <h3>Articles</h3> 
-        </div>
-
-        <div id="div-description-create">
-            <div id="div-description">
-                <div id="div-description-title">
-                    <a title="title" href="{{ Latest_articles.0.url }}">{{ Latest_articles.0.title }}</a>
-                </div>
-                <div id="div-description-date-publi">
-                    {{ Latest_articles.0.datepubli }}
-                </div>
-                <div id="div-description-url">
-                    <a title="url" href="{{ Latest_articles.0.url }}">{{ Latest_articles.0.url }}</a>
-                </div><div id="div-description-site">
-                    {{ Latest_articles.0.site }}
-                </div>
-                <div id="div-description-author">
-                    Auteur : {{ Latest_articles.0.author }}
-                </div>
-                <div id="div-description-categories">
-                    {{ Latest_articles.0.category_1 }} {{ Latest_articles.0.category_2 }} {{ Latest_articles.0.category_3 }} {{ Latest_articles.0.category_4 }} 
-                </div>
-                <div id="div-description-description"> 
-                    {{ Latest_articles.0.description }}
-                </div>
-            </div>
-        </div>
-        
-        <div id='derniers-articles'>
-            {% for article in Latest_articles %}
-                <div class="main-div-article">
-                    <div class="main-article-site" onclick="createDescriptionArticle('{{ article.author }}','{{ article.site }}','{{ article.category_1 }}','{{ article.category_2 }}','{{ article.category_3 }}','{{ article.category_4 }}','{{ article.datepubli }}','{{ article.url }}')">
-                        <p>{{ article.site }}</p>
-                    </div>
-                    <div class="main-article-title" onclick="createDescriptionArticle('{{ article.author }}','{{ article.site }}','{{ article.category_1 }}','{{ article.category_2 }}','{{ article.category_3 }}','{{ article.category_4 }}','{{ article.datepubli }}','{{ article.url }}')">
-                        <p id="p-title-article-media-tweet-{{ article.url }}"><a href="{{ article.url }}" class="link-article">{{ article.title }}</a></p>
-                    </div>
-                    <div class="main-div-article-category">
-                        <div class="main-article-category-1">
-                            <form action="{% url 'searchCategory' %}" method="GET">
-                                <input type="hidden" name="q" value="{{ article.category_1 }}">
-                                <button class="btn-category" type="submit">{{ article.category_1 }}</button>
-                            </form>
-                        </div>
-                        <div class="main-article-category-2">
-                            <form action="{% url 'searchCategory' %}" method="GET">
-                                <input type="hidden" name="q" value="{{ article.category_2 }}">
-                                <button class="btn-category" type="submit">{{ article.category_2 }}</button>
-                            </form>
-                        </div>
-                        <div class="main-article-category-3">
-                            <form action="{% url 'searchCategory' %}" method="GET">
-                                <input type="hidden" name="q" value="{{ article.category_3 }}">
-                                <button class="btn-category" type="submit">{{ article.category_3 }}</button>
-                            </form>
-                        </div>
-                        <div class="main-article-category-4">
-                            <form action="{% url 'searchCategory' %}" method="GET">
-                                <input type="hidden" name="q" value="{{ article.category_4 }}">
-                                <button class="btn-category" type="submit">{{ article.category_4 }}</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="main-article-interval-publi" onclick="createDescriptionArticle('{{ article.author }}','{{ article.site }}','{{ article.category_1 }}','{{ article.category_2 }}','{{ article.category_3 }}','{{ article.category_4 }}','{{ article.datepubli }}','{{ article.url }}')">
-                        <p>{{ article.interval_publi }}</p>
-                    </div>
-                    <p style="display:none;" id="article-{{ article.title }}"> {{ article.description }} </p>
-                </div>
-            {% endfor %}
-        </div>
-    </section>
-
-    <section>
-        <div id='derniers-media'> 
-            {% for media in Latest_media %}
-                <div class="main-div-media">
-                    <div class="main-div-media-img">
-                        <img class="main-media-img" src="{{ media.thumbnail }}" alt="{{ media.title }}">
-                    </div>
-                    <div class="main-media-author">
-                        <p>{{ media.author }}</p>
-                    </div>
-                    <div class="main-media-title">
-                        <p><a href="{{ media.url }}" class="link-media" style="text-decoration:none">{{ media.title }}</a></p>
-                    </div>
-                    <div class="main-media_interval_publi">
-                        <p>{{ media.interval_publi }}</p>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="section-media-title">
-            <h3>Vidéos</h3>  
-            <div class="section-media-box">
-                <div class="section-media-category">
-                    <h4>Bitcoin</h4>
-                    {% for bitcoin in list_site_media_bitcoin %}
-                        <a href={{ bitcoin.url_site }}>{{ bitcoin.title }}</a>
-                    {% endfor %}
-                </div>
-                <div class="section-media-category">
-                    <h4>Secteurs Crypto</h4>
-                    {% for crypto in list_site_media_media %}
-                        <a href={{ crypto.url_site }}>{{ crypto.title }}</a>
-                    {% endfor %}
-                </div>
-                <div class="section-media-category">
-                    <h4>Trading</h4>
-                    {% for trading in list_site_media_trading %}
-                        <a href={{ trading.url_site }}>{{ trading.title }}</a>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section>
-        <div class="section-tweet-title">
-            <h3>Tweets / Threads</h3> 
-            <p class="section-tweet-explications">Un bot Twitter a été créer, <a href="https://twitter.com/CoinCentraliz" style="color: blue; font-size: 18px;">@CoinCentraliz</a>, principalement pour récupérer des THREADS et les partager. 
-                <br><br><br>Ce dernier va retweeter lorsqu'on le mentionnee et ensuite ce tweet sera ajouté en page d'accueil du site
-                <br><br><br>Donc si vous voulez afficher / partager un tweet (THREAD) hésitez pas a mentionner le BOT
-            </p>
-        </div>
-
-        <div id='derniers-tweet'>
-            {% for tweet in Latest_tweet %}
-                <div class="main-div-tweet">
-                    <div class="main-tweet-author">
-                        <p>@{{ tweet.author }}</p>
-                    </div>
-                    <div class="main-tweet-title">
-                        <p><a href="{{ tweet.url }}" class="link-media" style="text-decoration:none">{{ tweet.title }}</a></p>
-                    </div>
-                    <div class="main-tweet-interval-publi">
-                        <p>{{ tweet.interval_publi }}</p>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </section>
-</div>
-
-
 <script>
 
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log('HTML prêt !');
+    AOS.init({
+        delay: 300, // values from 0 to 3000, with step 50ms
+        duration: 800, // values from 0 to 3000, with step 50ms     
     });
+
+    function dispo_box() {
+        document.getElementById("main-data").classList.replace("main-data", "main-data-box");
+        document.getElementById("main-div-descr").style.display = "none";
+    }
+
+    function dispo_list() {
+        document.getElementById("main-data").classList.replace("main-data-box", "main-data");
+        document.getElementById("main-div-descr").style.display = "block";
+    }
+
+    // Hiden principal scroll br of the page 
+    var style = document.createElement("style");
+    style.innerHTML = `body::-webkit-scrollbar {display: none;}`;
+    document.head.appendChild(style);
+
+    {% comment %} document.addEventListener('DOMContentLoaded', function() {
+        console.log('HTML prêt !');
+    }); {% endcomment %}
 
     function createOnLoad(author, site, category_1, category_2, category_3, category_4, date_publi, url) {
 
         var classname = document.getElementById("div-description-create");
-        console.log("classname :",classname);
+        //console.log("classname :",classname);
 
-        var article_title = document.getElementById("p-title-article-media-tweet-" + url);
+        var article_title = document.getElementById("article-title-" + url);
         //console.log("article_title :",article_title.textContent);
 
         var description_article = document.getElementById("article-" + article_title.textContent);
@@ -292,9 +169,9 @@
     function createDescriptionArticle(author, site, category_1, category_2, category_3, category_4, date_publi, url) {
 
         var classname = document.getElementById("div-description-create");
-        console.log("classname :",classname);
+        //console.log("classname :",classname);
 
-        var article_title = document.getElementById("p-title-article-media-tweet-" + url);
+        var article_title = document.getElementById("article-title-" + url);
         //console.log("article_title :",article_title.textContent);
 
         var description_article = document.getElementById("article-" + article_title.textContent);
@@ -313,20 +190,6 @@
             // ajoute le nœud texte au nouveau div-description-create
             newDiv.appendChild(div_article_description);
 
-            // crée un nouvel élément div title 
-            let div_title = document.createElement('div');
-            div_title.setAttribute("id", "div-description-title");
-
-            var a_title = document.createElement('a');
-            var linkText_new_article = document.createTextNode(article_title.textContent);
-            a_title.appendChild(linkText_new_article);
-            a_title.title = "title";
-            a_title.href = url;
-            div_title.appendChild(a_title);
-
-            // ajoute le nœud texte au nouveau div-description-create
-            div_article_description.appendChild(div_title);
-
 
             // crée un nouvel élément div date_publi 
             let div_date_publi = document.createElement('div');
@@ -336,17 +199,29 @@
             div_article_description.appendChild(div_date_publi);
 
 
+            // crée un nouvel élément div title 
+            let div_title = document.createElement('div');
+            div_title.setAttribute("id", "div-description-title");
+            var a_title = document.createElement('a');
+            var linkText_new_article = document.createTextNode(article_title.textContent);
+            a_title.appendChild(linkText_new_article);
+            a_title.title = "title";
+            a_title.href = url;
+            div_title.appendChild(a_title);
+            // ajoute le nœud texte au nouveau div-description-create
+            div_article_description.appendChild(div_title);
+
+
+
             // crée un nouvel élément div url 
             let div_url = document.createElement('div');
             div_url.setAttribute("id", "div-description-url");
-
             var a = document.createElement('a');
             var linkText_title = document.createTextNode(url);
             a.appendChild(linkText_title);
             a.title = "url";
             a.href = url;
             div_url.appendChild(a);
-
             // ajoute le nœud texte au nouveau div-description-create
             div_article_description.appendChild(div_url);
 
@@ -400,21 +275,6 @@
             let div_article_description = document.createElement('div');
             div_article_description.setAttribute("id", "div-description");
             
-            // crée un nouvel élément div title 
-            let div_title = document.createElement('div');
-            div_title.setAttribute("id", "div-description-title");
-
-            var a_title = document.createElement('a');
-            var linkText_new_article = document.createTextNode(article_title.textContent);
-            a_title.appendChild(linkText_new_article);
-            a_title.title = "title";
-            a_title.href = url;
-            div_title.appendChild(a_title);
-
-            // ajoute le nœud texte au nouveau div-description-create
-            div_article_description.appendChild(div_title);
-
-
 
             // crée un nouvel élément div date_publi 
             let div_date_publi = document.createElement('div');
@@ -424,17 +284,29 @@
             div_article_description.appendChild(div_date_publi);
 
 
+
+            // crée un nouvel élément div title 
+            let div_title = document.createElement('div');
+            div_title.setAttribute("id", "div-description-title");
+            var a_title = document.createElement('a');
+            var linkText_new_article = document.createTextNode(article_title.textContent);
+            a_title.appendChild(linkText_new_article);
+            a_title.title = "title";
+            a_title.href = url;
+            div_title.appendChild(a_title);
+            // ajoute le nœud texte au nouveau div-description-create
+            div_article_description.appendChild(div_title);
+
+
             // crée un nouvel élément div url 
             let div_url = document.createElement('div');
             div_url.setAttribute("id", "div-description-url");
-
             var a_url = document.createElement('a');
             var linkText_new_url = document.createTextNode(url);
             a_url.appendChild(linkText_new_url);
             a_url.title = "url";
             a_url.href = url;
             div_url.appendChild(a_url);
-
             // ajoute le nœud texte au nouveau div-description-create
             div_article_description.appendChild(div_url);
 
@@ -476,8 +348,6 @@
             new_div.replaceChild(div_article_description, new_div.firstElementChild);
         }
     }
-
-
 </script>
 
 {%endblock%}

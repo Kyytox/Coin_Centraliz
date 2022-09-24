@@ -1,0 +1,21 @@
+{% extends 'news/base.html' %}
+{% load static %}
+    
+
+{% block content %}
+<div id="main">
+    <div class="main-data-newsletter">
+        {% for site in list_newsletters %}
+            <div class="main-data-newsletter-element">
+                <div class="data-newsletter-img">
+                    <a href="{{ site.url_site }}" target="_blank" rel="noopener noreferrer"><img class="" src="/static/img/newsletter/{{ site.title }}.jpg" alt="{{ site.title }}"></a>
+                </div>
+                <div class="data-newsletter-name">
+                    <a href="{{ site.url_site }}" target="_blank" rel="noopener noreferrer">{{ site.title }}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
