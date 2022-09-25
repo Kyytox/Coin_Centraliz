@@ -10,17 +10,40 @@
             <button type="submit" {% if site.title in request.get_full_path %} id="active" {% endif %}>Dernieres Actus</button>
         </form>
         {% for site in list_site_articles %}
-        <form action="{% url 'index' %}" method="GET">
-            <input type="hidden" name="r" value="{{ site.title }}">
-            <button type="submit" {% if site.title in request.get_full_path %} id="active" {% endif %}>{{ site.title }} </button>
-        </form>
-    {% endfor %}
+            <form action="{% url 'index' %}" method="GET">
+                <input type="hidden" name="r" value="{{ site.title }}">
+                <button type="submit" {% if site.title in request.get_full_path %} id="active" {% endif %}>{{ site.title }} </button>
+            </form>
+        {% endfor %}
+    </div>
+
+    <div class="main-creator-accordion">
+        <div class="creator-accordion-item">
+            <div class="creator-accordion-item-header">
+                Sites Actus
+            </div>
+            <div class="creator-accordion-item-body">
+                <div class="creator-accordion-item-body-content">
+                    <form action="{% url 'index' %}">
+                        <button type="submit" {% if site.title in request.get_full_path %} id="active" {% endif %}>Dernieres Actus</button>
+                    </form>
+                    {% for site in list_site_articles %}
+                        <form action="{% url 'index' %}" method="GET">
+                            <input type="hidden" name="r" value="{{ site.title }}">
+                            <button type="submit">{{ site.title }}</button>
+                        </form>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="main-data-box" id="main-data">
         {% include "news/box_article.html"%}
     </div>
 </div>
+
+
 
 <script>
 
@@ -33,6 +56,23 @@
     var style = document.createElement("style");
     style.innerHTML = `body::-webkit-scrollbar {display: none;}`;
     document.head.appendChild(style);
+
+    const accordionItemHeaders = document.querySelectorAll(".creator-accordion-item-header");
+
+    accordionItemHeaders.forEach(accordionItemHeader => {
+        accordionItemHeader.addEventListener("click", event => {
+
+            accordionItemHeader.classList.toggle("active");
+            const accordionItemBody = accordionItemHeader.nextElementSibling;
+            if(accordionItemHeader.classList.contains("active")) {
+            accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+            }
+            else {
+            accordionItemBody.style.maxHeight = 0;
+            }
+            
+        });
+    });
 
 
 </script>

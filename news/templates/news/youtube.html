@@ -31,9 +31,78 @@
         {% endfor %}
     </div>
 
+    <div class="main-creator-yt-accordion">
+        <div class="creator-yt-accordion-item">
+            <div class="creator-yt-accordion-item-header">
+                Créateurs
+            </div>
+            <div class="creator-yt-accordion-item-body">
+                <div class="creator-yt-accordion-item-body-content">
+                    {% for bitcoin in list_site_media_bitcoin %}
+                        <form action="{% url 'media' %}" method="GET">
+                            <input type="hidden" name="r" value="{{ bitcoin.title }}">
+                            <button type="submit" {% if bitcoin.title in request.get_full_path %} id="active" {% endif %}>{{ bitcoin.title }}</button>
+                            <i class="fa-brands fa-bitcoin" title="Contenu Bitcoin"></i>
+                        </form>
+                    {% endfor %}
+        
+                    {% for crypto in list_site_media_media %}
+                        <form action="{% url 'media' %}" method="GET">
+                            <input type="hidden" name="r" value="{{ crypto.title }}">
+                            <button type="submit" {% if crypto.title in request.get_full_path %} id="active" {% endif %}>{{ crypto.title }}</button>
+                            <i class="fa-brands fa-ethereum" title="Contenu Crypto"></i>
+                        </form>
+                    {% endfor %}
+        
+                    {% for trading in list_site_media_trading %}
+                        <form action="{% url 'media' %}" method="GET">
+                            <input type="hidden" name="r" value="{{ trading.title }}">
+                            <button type="submit" {% if trading.title in request.get_full_path %} id="active" {% endif %}>{{ trading.title }}</button>
+                            <i class="fa-solid fa-chart-line" title="Contenu Trading"></i>
+                        </form>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="main-data-yt-box" id="main-data">
         {% include "news/box_youtube.html"%}
     </div>
 </div>
+
+
+
+<script>
+
+    AOS.init({
+        delay: 300, // values from 0 to 3000, with step 50ms
+        duration: 800, // values from 0 to 3000, with step 50ms     
+    });
+
+    // Hiden principal scroll br of the page 
+    var style = document.createElement("style");
+    style.innerHTML = `body::-webkit-scrollbar {display: none;}`;
+    document.head.appendChild(style);
+
+    const accordionItemHeaders = document.querySelectorAll(".creator-yt-accordion-item-header");
+
+    accordionItemHeaders.forEach(accordionItemHeader => {
+        accordionItemHeader.addEventListener("click", event => {
+
+            accordionItemHeader.classList.toggle("active");
+            const accordionItemBody = accordionItemHeader.nextElementSibling;
+            if(accordionItemHeader.classList.contains("active")) {
+            accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+            }
+            else {
+            accordionItemBody.style.maxHeight = 0;
+            }
+            
+        });
+    });
+
+
+</script>
 
 {% endblock %}

@@ -23,7 +23,7 @@
     <li {% if request.resolver_match.url_name == 'tweets' %} id="active" {% endif %} alt="Tweets">
         <a href="{% url 'tweets' %}"><i class="fa-brands fa-twitter"></i></a>
     </li>
-    <li>
+    <li {% if request.resolver_match.url_name == 'environnement' %} id="active" {% endif %}>
         <a href="{% url 'environnement' %}"><i class="fa-solid fa-tree"></i></a>
     </li>
     <li {% if request.resolver_match.url_name == 'newsletter' %} id="active" {% endif %}>
