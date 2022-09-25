@@ -4,10 +4,10 @@ from pprint import pprint
 import psycopg2
 
 # Initialization
-auth = tweepy.OAuthHandler("jedI81cVNadFucrO8awVbzWcp",
-                           "z8osPI7E3y4PdmMTva6Uwos2grdcl1bYY2GXHH12GV4qQF7F34")
-auth.set_access_token("1524521336420380672-EB8tdVauKSm0k7dYoqMYeaNtzgjeju",
-                      "BqVdF5VMZInN0s75H0Aelsu0liaIfRJZU1ESzlFmieViQ")
+auth = tweepy.OAuthHandler("",
+                           "")
+auth.set_access_token("-",
+                      "")
 api = tweepy.API(auth)
 
 # Getting Bot ID
