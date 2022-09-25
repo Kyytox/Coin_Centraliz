@@ -5,7 +5,7 @@
 {%block content%}
 
 <div id="main">
-    <div class="main-creator">
+    <div class="main-creator" data-aos="fade-right">
         <form action="{% url 'index' %}">
             <button type="submit" {% if site.title in request.get_full_path %} id="active" {% endif %}>Dernieres Actus</button>
         </form>
@@ -17,7 +17,7 @@
         {% endfor %}
     </div>
 
-    <div class="main-creator-accordion">
+    <div class="main-creator-accordion" data-aos="fade-down">
         <div class="creator-accordion-item">
             <div class="creator-accordion-item-header">
                 Sites Actus
@@ -43,19 +43,7 @@
     </div>
 </div>
 
-
-
 <script>
-
-    AOS.init({
-        delay: 300, // values from 0 to 3000, with step 50ms
-        duration: 800, // values from 0 to 3000, with step 50ms     
-    });
-
-    // Hiden principal scroll br of the page 
-    var style = document.createElement("style");
-    style.innerHTML = `body::-webkit-scrollbar {display: none;}`;
-    document.head.appendChild(style);
 
     const accordionItemHeaders = document.querySelectorAll(".creator-accordion-item-header");
 

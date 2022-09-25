@@ -7,7 +7,7 @@ import psycopg2
 try:
     conn = psycopg2.connect(
         user="postgres",
-        password='Caillault.012379',
+        password='',
         host="localhost",
         port="5432",
         database="coincentraliz"

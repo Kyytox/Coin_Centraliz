@@ -77,7 +77,7 @@ list_site_ajout = [['CryptoNews', 'https://fr.cryptonews.com/', 'https://fr.cryp
 try:
     conn = psycopg2.connect(
         user="postgres",
-        password='Caillault.012379',
+        password='',
         host="localhost",
         port="5432",
         database="coincentraliz"

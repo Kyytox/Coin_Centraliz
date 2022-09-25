@@ -5,7 +5,7 @@
 {% block content %}
 
 <div id="main">
-    <div class="main-creator-yt">
+    <div class="main-creator-yt" data-aos="fade-right">
         {% for bitcoin in list_site_media_bitcoin %}
             <form action="{% url 'media' %}" method="GET">
                 <input type="hidden" name="r" value="{{ bitcoin.title }}">
@@ -31,7 +31,7 @@
         {% endfor %}
     </div>
 
-    <div class="main-creator-yt-accordion">
+    <div class="main-creator-yt-accordion" data-aos="fade-down">
         <div class="creator-yt-accordion-item">
             <div class="creator-yt-accordion-item-header">
                 Créateurs
@@ -74,16 +74,6 @@
 
 
 <script>
-
-    AOS.init({
-        delay: 300, // values from 0 to 3000, with step 50ms
-        duration: 800, // values from 0 to 3000, with step 50ms     
-    });
-
-    // Hiden principal scroll br of the page 
-    var style = document.createElement("style");
-    style.innerHTML = `body::-webkit-scrollbar {display: none;}`;
-    document.head.appendChild(style);
 
     const accordionItemHeaders = document.querySelectorAll(".creator-yt-accordion-item-header");
 

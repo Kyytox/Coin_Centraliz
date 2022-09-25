@@ -3,7 +3,7 @@
 {% block content %}
 
 <div id="main">
-    <div class="main-search-category">
+    <div class="main-search-category" data-aos="fade-right">
         {% if Latest_articles %}
             <form action="{% url 'SearchPage' %}" method="GET">
                 <input type="hidden" name="c" value="article">
